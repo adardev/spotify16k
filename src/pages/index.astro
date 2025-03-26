@@ -13,42 +13,28 @@ import Layout from '../layouts/Layout.astro';
 </head>
 <body>
     <section class="recomendaciones">
-            <div class="carrusel">
-                
-                <div class="carrusel">
-                        <div class="elementos">
-                            <img src="image.png" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="image.png" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="image.png" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="image.png" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="image.png" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="" alt="" class="imagen">
-                        </div>
-                        <div class="elementos">
-                            <img src="" alt="" class="imagen">
-                        </div> 
-                    </div>
-            </div>
-
+        <div class="carrusel">
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="/dist/img/apt.jpg" alt="">
+                </div>
+        </div>
+            
+            
             <div class="recientemente">
                 <div class="texto">
                     <p class="currently text font-bold text-3xl">
@@ -181,6 +167,15 @@ body {
     height: 275px;
     scroll-snap-align: center;
     border-radius: 25px;
+    overflow: hidden; 
+}
+
+
+.elemento img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
+    border-radius: 25px;
 }
 
 /* Asegurar que el primer y último elemento no se vean cortados */
@@ -191,14 +186,6 @@ body {
 .elemento:last-child {
     margin-right: 20px;
 }
-
-.elemento img {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-    max-height: 500px;
-}
-
 
 .recientemente {
     display: flex;
@@ -233,8 +220,8 @@ body {
     align-items: center;
     flex-grow: 1;
     border-radius: 20px;
+    width: 275px;
 }
-
 
 .portada {
     width: 250px;
