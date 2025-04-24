@@ -3,9 +3,7 @@ import TitleIcon from "./titleIcon.astro";
 const {coverSrc} = Astro.props;
 ---
 
-
-<button class="flex flex-col justify-start items-center p-12 w-96 h-[40rem] rounded-3xl border-none bg-backgroundPrimary">
-    <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Canciones"></TitleIcon>
-
+<button class="flex flex-col justify-start items-center p-12 w-96 h-[30rem] rounded-3xl border-none bg-backgroundPrimary">
+    <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
     <img src={coverSrc} alt="" class="img-card w-64  h-64">
 </button>
