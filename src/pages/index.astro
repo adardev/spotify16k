@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TopCard from "../components/topCard.astro";
+import Widget from "../components/widget.astro";
+import TitleIcon from "../components/titleIcon.astro";
+import List from "../components/list.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -61,18 +64,30 @@ import TopCard from "../components/topCard.astro";
     </section>
     <section class="tops">
         <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
+                coverSrc="/dist/covers/apt.jpg"/>
         <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
-                <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
+                coverSrc="/dist/covers/apt.jpg"/>
+        <TopCard
+                coverSrc="/dist/covers/apt.jpg"/>
     </section>
+
+    <Widget width="w-full" height="h-fit" flex="flex-col">
+        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
+        <List number="1" title="hola"></List>
+        <List number="2" title="hola"></List>
+    </Widget>
+    <Widget width="w-full" height="h-fit" flex="flex-col">
+        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
+        <List number="1" title="hola"></List>
+        <List number="2" title="hola"></List>
+    </Widget>
+    <Widget width="w-full" height="h-fit" flex="flex-col">
+        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
+        <List number="1" title="hola"></List>
+        <List number="2" title="hola"></List>
+    </Widget>
+
+
     </body>
 </Layout>
 
