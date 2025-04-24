@@ -1,73 +1,80 @@
 ---
-import { ViewTransitions } from "astro:transitions"
+import {ViewTransitions} from "astro:transitions"
 import "../styles/global.css";
+import RoundedLink from "../components/roundedLink.astro";
 
 const currentYear = new Date().getFullYear();
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-		<meta name="generator" content={Astro.generator} />
-		<title>MAQUETADO1</title>
-	</head>
-	<body>
-		<header>
-			<a href="/"><img class="icon" src="/dist/img/home_icon.png"></a>
+    <meta name="generator" content={Astro.generator}/>
+    <title>MAQUETADO1</title>
+</head>
+<body>
+<header>
+    <a href="/"><img class="icon" src="/dist/img/home_icon.png"></a>
 
-			<div class="search-container">
-				<input type="search" class="search-input" placeholder="Buscar...">
-			</div>
+    <div class="search-container">
+        <input type="search" class="search-input" placeholder="Buscar...">
+    </div>
 
-			<a href="/"><img class="icon" src="/dist/img/squared_centered.jpg"></a>
-		</header>
+	<RoundedLink/>
+</header>
 
-		<main>
-			<slot />
-		</main>
-		
-	</body>
+<main>
+    <slot/>
+</main>
+
+</body>
 </html>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-	html{
-		padding: 25px;
-		font-family: "Montserrat", sans-serif;;
-	}
-	body{
-		width: 100%;
-		margin: 0;
-		}
-	header{
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		gap: 50px;
-	}
-	.icon {
-		width: 50px;
-		height: 50px;
-		background-color: #B8B2E6;
-		border-radius: 50%;
-	}
-	.search-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 50%;
-	}
-	.search-input {
-		width: 500px;
-		height: 50px;
-		padding: 12px 20px;
-		font-size: 16px;
-		border-radius: 50px;
-		outline: none;
-		background-color: #B8B2E6;
-		border: none;
-	}
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    html {
+        padding: 25px;
+        font-family: "Montserrat", sans-serif;;
+    }
+
+    body {
+        width: 100%;
+        margin: 0;
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: #B8B2E6;
+        border-radius: 50%;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    .search-input {
+        width: 500px;
+        height: 50px;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 50px;
+        outline: none;
+        background-color: #B8B2E6;
+        border: none;
+    }
 </style>
