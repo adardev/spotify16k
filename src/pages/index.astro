@@ -4,6 +4,7 @@ import TopCard from "../components/topCard.astro";
 import Widget from "../components/widget.astro";
 import TitleIcon from "../components/titleIcon.astro";
 import List from "../components/list.astro";
+import Section from "../components/section.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,8 +17,8 @@ import List from "../components/list.astro";
         <title>Inicio</title>
     </head>
     <body>
-    <section class="recomendaciones">
-        <div class="carrusel">
+    <Section>
+        <div class="flex flex-nowrap overflow-x-auto w-96 max-h-[275px] justify-center pl-2 snap-x snap-mandatory scroll-pl-5">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -38,8 +39,7 @@ import List from "../components/list.astro";
             </div>
         </div>
 
-
-        <div class="recientemente">
+        <div class="flex flex-row items-center rounded-3xl bg-backgroundSecondary w-[90rem]gap-2">
             <div class="texto">
                 <p class="currently text font-bold text-3xl">
                     recientemente escuchado
@@ -61,31 +61,40 @@ import List from "../components/list.astro";
                 <img src="/dist/covers/apt.jpg" alt="" class="portada">
             </div>
         </div>
-    </section>
-    <section class="tops">
-        <TopCard
-                coverSrc="/dist/covers/apt.jpg"/>
-        <TopCard
-                coverSrc="/dist/covers/apt.jpg"/>
-        <TopCard
-                coverSrc="/dist/covers/apt.jpg"/>
-    </section>
 
-    <Widget width="w-full" height="h-fit" flex="flex-col">
-        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
-        <List number="1" title="hola"></List>
-        <List number="2" title="hola"></List>
-    </Widget>
-    <Widget width="w-full" height="h-fit" flex="flex-col">
-        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
-        <List number="1" title="hola"></List>
-        <List number="2" title="hola"></List>
-    </Widget>
-    <Widget width="w-full" height="h-fit" flex="flex-col">
-        <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
-        <List number="1" title="hola"></List>
-        <List number="2" title="hola"></List>
-    </Widget>
+    </Section>
+    <Section extraClass="gap-6">
+        <TopCard
+                title="Tus Canciones"
+                iconSrc="/dist/icons/track_icon.svg"
+                coverSrc="/dist/covers/apt.jpg"/>
+        <TopCard
+                title="Tus Artistas"
+                iconSrc="/dist/icons/artist_icon.svg"
+                coverSrc="/dist/covers/apt.jpg"/>
+        <TopCard
+                title="Tus Albumes"
+                iconSrc="/dist/icons/album_icon.svg"
+                coverSrc="/dist/covers/apt.jpg"/>
+    </Section>
+
+
+        <Widget width="w-full" height="h-fit" flex="flex-col">
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <List number="1" title="hola"></List>
+            <List number="2" title="hola"></List>
+        </Widget>
+        <Widget width="w-full" height="h-fit" flex="flex-col">
+            <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Top Artistas"></TitleIcon>
+            <List number="1" title="hola"></List>
+            <List number="2" title="hola"></List>
+        </Widget>
+        <Widget width="w-full" height="h-fit" flex="flex-col">
+            <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Top Albumes"></TitleIcon>
+            <List number="1" title="hola"></List>
+            <List number="2" title="hola"></List>
+        </Widget>
+
 
 
     </body>
@@ -105,7 +114,6 @@ import List from "../components/list.astro";
 
     .tops {
         display: flex;
-        justify-content: center;
         gap: 60px;
         padding: 20px;
     }
@@ -136,27 +144,6 @@ import List from "../components/list.astro";
         width: 250px;
         border-radius: 10%;
         margin-top: 40px;
-    }
-
-    .recomendaciones {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        padding: 25px;
-        border-radius: 30px;
-        background-color: #b8b2e6;
-    }
-
-    .carrusel {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        width: 60%;
-        scroll-snap-type: x mandatory;
-        scroll-padding-left: 20px;
-        padding-left: 20px;
-        max-height: 275px;
-        justify-content: center;
     }
 
     /* Personalización de la barra de scroll */

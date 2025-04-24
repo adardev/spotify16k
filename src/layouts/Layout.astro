@@ -15,15 +15,16 @@ const currentYear = new Date().getFullYear();
     <meta name="generator" content={Astro.generator}/>
     <title>MAQUETADO1</title>
 </head>
-<body>
-<header>
-	<RoundedLink/>
+<body class="px-24">
+
+<header class="w-fit">
+	<RoundedLink iconSrc="/dist/icons/home_icon.svg"></RoundedLink>
 
     <div class="search-container">
         <input type="search" class="search-input" placeholder="Buscar...">
     </div>
 
-	<RoundedLink/>
+    	<RoundedLink iconSrc="/dist/icons/profile_icon.svg"></RoundedLink>
 </header>
 
 <main>
@@ -37,7 +38,6 @@ const currentYear = new Date().getFullYear();
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
     html {
-        padding: 25px;
         font-family: "Montserrat", sans-serif;;
     }
 

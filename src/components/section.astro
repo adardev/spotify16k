@@ -1,0 +1,6 @@
+---
+let {flexOrientation, extraClass} = Astro.props
+---
+<section class={`flex ${flexOrientation} gap-2 rounded-3xl bg-backgroundPrimary p-8 w-fit ${extraClass}`}>
+<slot/>
+</section>

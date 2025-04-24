@@ -1,9 +1,9 @@
 ---
 import TitleIcon from "./titleIcon.astro";
-const {coverSrc} = Astro.props;
+const {title, iconSrc, coverSrc} = Astro.props;
 ---
 
-<button class="flex flex-col justify-start items-center p-12 w-96 h-[30rem] rounded-3xl border-none bg-backgroundPrimary">
-    <TitleIcon iconSrc="/dist/icons/profile_icon.svg" title="Top Canciones"></TitleIcon>
-    <img src={coverSrc} alt="" class="img-card w-64  h-64">
-</button>
+<a class="flex flex-col justify-start items-center p-2 w-[21.7rem] h-[30rem] rounded-3xl border-none bg-backgroundSecondary">
+    <TitleIcon iconSrc={iconSrc} title={title}]></TitleIcon>
+    <img src={coverSrc} alt="" class="img-card w-64 h-64 rounded-3xl">
+</a>
