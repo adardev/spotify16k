@@ -1,235 +1,238 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TopCard from "../components/topCard.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio</title>
+    </head>
+    <body>
     <section class="recomendaciones">
         <div class="carrusel">
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-                <div class="elemento">
-                    <img src="/dist/covers/apt.jpg" alt="">
-                </div>
-        </div>
-            
-            
-            <div class="recientemente">
-                <div class="texto">
-                    <p class="currently text font-bold text-3xl">
-                        recientemente escuchado
-                    </p>
-                    <p class="titulo font-bold text-2xl">
-                        sona
-                    </p>
-                    <p class="autor font-bold text-2xl">
-                        Zedd 
-                    </p>
-                    <div class="otros oyentes">
-                        <p class="textoG">
-                            otros oyentes
-                        </p>    
-                    </div>
-                </div>
-
-                <div class="imagen">
-                        <img src="/dist/covers/apt.jpg" alt="" class="portada">
-                    </div>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
             </div>
-        </section>
-        <section class="tops">
-            <button class="cardview">
-                <img src="/dist/icons/profile_icon.svg" alt="" class="h-16">
-                <p class="font-bold text-2xl">Top Canciones</p>
-                <img src="/dist/covers/apt.jpg" alt="" class="img-card">
-            </button>
-            <button class="cardview">
-                <img src="/dist/icons/profile_icon.svg" alt="" class="h-16">
-                <p class="font-bold text-2xl">Top Artistas</p>
-                <img src="/dist/covers/glass-animals.jpg" alt="" class="img-card">
-            </button>
-            <button class="cardview">
-                <img src="/dist/icons/profile_icon.svg" alt="" class="infografia">
-                <p class="font-bold text-2xl">Top Albumes</p>
-                <img src="/dist/covers/plastic-beach.jpg" alt="" class="img-card">
-            </button>
-        </section>
-</body>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img src="/dist/covers/apt.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="recientemente">
+            <div class="texto">
+                <p class="currently text font-bold text-3xl">
+                    recientemente escuchado
+                </p>
+                <p class="titulo font-bold text-2xl">
+                    sona
+                </p>
+                <p class="autor font-bold text-2xl">
+                    Zedd
+                </p>
+                <div class="otros oyentes">
+                    <p class="textoG">
+                        otros oyentes
+                    </p>
+                </div>
+            </div>
+
+            <div class="imagen">
+                <img src="/dist/covers/apt.jpg" alt="" class="portada">
+            </div>
+        </div>
+    </section>
+    <section class="tops">
+        <TopCard
+        iconSrc="/dist/icons/profile_icon.svg"
+        title="Canciones"
+        coverSrc="/dist/covers/apt.jpg"/>
+        <TopCard
+        iconSrc="/dist/icons/profile_icon.svg"
+        title="Canciones"
+        coverSrc="/dist/covers/apt.jpg"/>
+                <TopCard
+        iconSrc="/dist/icons/profile_icon.svg"
+        title="Canciones"
+        coverSrc="/dist/covers/apt.jpg"/>
+    </section>
+    </body>
 </Layout>
 
 <style>
-    p{
+    p {
         margin: 10px;
     }
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: #D4D1F0;
-    gap: 20px;
-}
-.tops{
+
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #D4D1F0;
+        gap: 20px;
+    }
+
+    .tops {
         display: flex;
         justify-content: center;
         gap: 60px;
         padding: 20px;
-}
+    }
 
-.cardview{
+    .cardview {
         background-color: #B8B2E6;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
         padding: 10px;
         height: 500px;
         width: 400px;
         border-radius: 5%;
         border: none;
-}
-.infografia{
+    }
+
+    .infografia {
         background-color: #9c93dc;
         border-radius: 50%;
         height: 60px;
         width: 60px;
         margin-top: 20px;
-}
-.img-card{
+    }
+
+    .img-card {
         height: 250px;
         width: 250px;
         border-radius: 10%;
         margin-top: 40px;
-}
-.recomendaciones {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 25px;
-    border-radius: 30px;
-    background-color: #b8b2e6;
-}
-.carrusel {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    width: 60%;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 20px;
-    padding-left: 20px;
-    max-height: 275px;
-    justify-content: center;
-}
+    }
 
-/* Personalización de la barra de scroll */
-.carrusel::-webkit-scrollbar {
-    height: 8px;
-}
+    .recomendaciones {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 25px;
+        border-radius: 30px;
+        background-color: #b8b2e6;
+    }
 
-.carrusel::-webkit-scrollbar-track {
-    background: #b8b2e6;
-    border-radius: 10px;
-}
+    .carrusel {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 60%;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 20px;
+        padding-left: 20px;
+        max-height: 275px;
+        justify-content: center;
+    }
 
-.carrusel::-webkit-scrollbar-thumb {
-    background: #9c93dc;
-    border-radius: 10px;
-}
+    /* Personalización de la barra de scroll */
+    .carrusel::-webkit-scrollbar {
+        height: 8px;
+    }
 
+    .carrusel::-webkit-scrollbar-track {
+        background: #b8b2e6;
+        border-radius: 10px;
+    }
 
-.elemento {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 auto;
-    margin: 0 20px;
-    background-color: #9c93dc;
-    width: 275px;
-    height: 275px;
-    scroll-snap-align: center;
-    border-radius: 25px;
-    overflow: hidden; 
-}
+    .carrusel::-webkit-scrollbar-thumb {
+        background: #9c93dc;
+        border-radius: 10px;
+    }
 
 
-.elemento img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
-    border-radius: 25px;
-}
-
-/* Asegurar que el primer y último elemento no se vean cortados */
-.elemento:first-child {
-    margin-left: 20px;
-}
-
-.elemento:last-child {
-    margin-right: 20px;
-}
-
-.recientemente {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 14px;
-    border-radius: 30px;
-    background-color: #9c93dc;
-    width: 50%;
-    height: 100%;
-    gap: 10px;
-}
+    .elemento {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 auto;
+        margin: 0 20px;
+        background-color: #9c93dc;
+        width: 275px;
+        height: 275px;
+        scroll-snap-align: center;
+        border-radius: 25px;
+        overflow: hidden;
+    }
 
 
-.texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 2; 
-    width: 50%;
-}
+    .elemento img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
+        border-radius: 25px;
+    }
 
-/* Mueve el texto 'otros oyentes' hasta abajo */
-.otros.oyentes {
-    margin-top: auto;
-}
+    /* Asegurar que el primer y último elemento no se vean cortados */
+    .elemento:first-child {
+        margin-left: 20px;
+    }
 
-/* Imagen dentro de 'recientemente' */
-.imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    border-radius: 20px;
-    width: 275px;
-}
+    .elemento:last-child {
+        margin-right: 20px;
+    }
 
-.portada {
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-    max-width: 250px;
-}
+    .recientemente {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 14px;
+        border-radius: 30px;
+        background-color: #9c93dc;
+        width: 50%;
+        height: 100%;
+        gap: 10px;
+    }
 
+
+    .texto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 2;
+        width: 50%;
+    }
+
+    /* Mueve el texto 'otros oyentes' hasta abajo */
+    .otros.oyentes {
+        margin-top: auto;
+    }
+
+    /* Imagen dentro de 'recientemente' */
+    .imagen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        border-radius: 20px;
+        width: 275px;
+    }
+
+    .portada {
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        max-width: 250px;
+    }
 
 
 </style>
