@@ -5,6 +5,7 @@ import Widget from "../components/widget.astro";
 import TitleIcon from "../components/titleIcon.astro";
 import List from "../components/list.astro";
 import Section from "../components/section.astro";
+import TopRankings from "../components/topRankings.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -39,7 +40,7 @@ import Section from "../components/section.astro";
             </div>
         </div>
 
-        <div class="flex flex-row items-center rounded-3xl bg-backgroundSecondary w-[90rem]gap-2">
+        <div class="flex flex-row items-center rounded-3xl bg-backgroundSecondary w-[90rem] gap-2 p-8">
             <div class="texto">
                 <p class="currently text font-bold text-3xl">
                     recientemente escuchado
@@ -63,19 +64,55 @@ import Section from "../components/section.astro";
         </div>
 
     </Section>
-    <Section extraClass="gap-6">
-        <TopCard
-                title="Tus Canciones"
-                iconSrc="/dist/icons/track_icon.svg"
-                coverSrc="/dist/covers/apt.jpg"/>
-        <TopCard
-                title="Tus Artistas"
-                iconSrc="/dist/icons/artist_icon.svg"
-                coverSrc="/dist/covers/apt.jpg"/>
-        <TopCard
-                title="Tus Albumes"
-                iconSrc="/dist/icons/album_icon.svg"
-                coverSrc="/dist/covers/apt.jpg"/>
+    <Section flexOrientation="flex-row" extraClass="gap-6">
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-56  rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-64 h-64 rounded-3xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-56 rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-64 h-64 rounded-3xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-56  rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-64 h-64 rounded-3xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+
+        <!--
+                <TopCard
+                        title="Tus Canciones"
+                        iconSrc="/dist/icons/track_icon.svg"
+                        coverSrc="/dist/covers/apt.jpg"/>
+                <TopCard
+                        title="Tus Artistas"
+                        iconSrc="/dist/icons/artist_icon.svg"
+                        coverSrc="/dist/covers/apt.jpg"/>
+                <TopCard
+                        title="Tus Albumes"
+                        iconSrc="/dist/icons/album_icon.svg"
+                        coverSrc="/dist/covers/apt.jpg"/>
+                -->
     </Section>
 
     <Section>
