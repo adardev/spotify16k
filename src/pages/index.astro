@@ -98,39 +98,30 @@ import TopRankings from "../components/topRankings.astro";
                 </p>
             </Widget>
         </TopRankings>
-
-        <!--
-                <TopCard
-                        title="Tus Canciones"
-                        iconSrc="/dist/icons/track_icon.svg"
-                        coverSrc="/dist/covers/apt.jpg"/>
-                <TopCard
-                        title="Tus Artistas"
-                        iconSrc="/dist/icons/artist_icon.svg"
-                        coverSrc="/dist/covers/apt.jpg"/>
-                <TopCard
-                        title="Tus Albumes"
-                        iconSrc="/dist/icons/album_icon.svg"
-                        coverSrc="/dist/covers/apt.jpg"/>
-                -->
     </Section>
 
-    <Section>
-        <Widget width="w-full" height="h-fit" flex="flex-col">
+    <Section flexOrientation="flex-row" extraClass="gap-6">
+        <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
-            <List number="1" title="hola"></List>
-            <List number="2" title="hola"></List>
-        </Widget>
-        <Widget width="w-full" height="h-fit" flex="flex-col">
-            <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Top Artistas"></TitleIcon>
-            <List number="1" title="hola"></List>
-            <List number="2" title="hola"></List>
-        </Widget>
-        <Widget width="w-full" height="h-fit" flex="flex-col">
-            <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Top Albumes"></TitleIcon>
-            <List number="1" title="hola"></List>
-            <List number="2" title="hola"></List>
-        </Widget>
+            <div class="w-72">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <div class="w-72">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <div class="w-72">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
     </Section>
     </body>
 </Layout>
