@@ -18,7 +18,7 @@ import Section from "../components/section.astro";
     </head>
     <body>
     <Section>
-        <div class="flex flex-nowrap overflow-x-auto w-96 max-h-[275px] justify-center pl-2 snap-x snap-mandatory scroll-pl-5">
+        <div class="flex flex-nowrap overflow-x-auto w-96 max-h-[275px] justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -78,7 +78,7 @@ import Section from "../components/section.astro";
                 coverSrc="/dist/covers/apt.jpg"/>
     </Section>
 
-
+    <Section>
         <Widget width="w-full" height="h-fit" flex="flex-col">
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
             <List number="1" title="hola"></List>
@@ -94,9 +94,7 @@ import Section from "../components/section.astro";
             <List number="1" title="hola"></List>
             <List number="2" title="hola"></List>
         </Widget>
-
-
-
+    </Section>
     </body>
 </Layout>
 

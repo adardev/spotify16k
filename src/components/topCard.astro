@@ -3,7 +3,7 @@ import TitleIcon from "./titleIcon.astro";
 const {title, iconSrc, coverSrc} = Astro.props;
 ---
 
-<a class="flex flex-col justify-start items-center p-2 w-[21.7rem] h-[30rem] rounded-3xl border-none bg-backgroundSecondary">
+<a class="flex flex-col justify-start items-center p-8 w-[15rem] h-[30rem] rounded-3xl border-none bg-backgroundSecondary">
     <TitleIcon iconSrc={iconSrc} title={title}]></TitleIcon>
     <img src={coverSrc} alt="" class="img-card w-64 h-64 rounded-3xl">
 </a>
