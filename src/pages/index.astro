@@ -62,22 +62,21 @@ import TopRankings from "../components/topRankings.astro";
                 <img src="/dist/covers/apt.jpg" alt="" class="portada">
             </div>
         </div>
-<<<<<<< HEAD
     </section>
 
     <section class="tops">
         <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
+                iconSrc="/dist/icons/profile_icon.svg"
+                title="Canciones"
+                coverSrc="/dist/covers/apt.jpg"/>
         <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
-                <TopCard
-        iconSrc="/dist/icons/profile_icon.svg"
-        title="Canciones"
-        coverSrc="/dist/covers/apt.jpg"/>
+                iconSrc="/dist/icons/profile_icon.svg"
+                title="Canciones"
+                coverSrc="/dist/covers/apt.jpg"/>
+        <TopCard
+                iconSrc="/dist/icons/profile_icon.svg"
+                title="Canciones"
+                coverSrc="/dist/covers/apt.jpg"/>
     </section>
 
     <section class="Rank">
@@ -103,19 +102,17 @@ import TopRankings from "../components/topRankings.astro";
 
             </div>
             <div class="tierlist">
-               <li class="lista-album">3</li> 
+                <li class="lista-album">3</li>
             </div>
         </div>
 
     </section>
-=======
-
-    </Section>
     <Section flexOrientation="flex-row" extraClass="gap-6">
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Tus Canciones"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topsongs" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topsongs"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="/dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topsongs" class="no-underline text-black">
@@ -128,7 +125,8 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Tus Artistas"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topartists" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topartists"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topartists" class="no-underline text-black">
@@ -141,7 +139,8 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Tus Albums"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topalbums" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topalbums"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topalbums" class="no-underline text-black">
@@ -176,37 +175,38 @@ import TopRankings from "../components/topRankings.astro";
             </div>
         </TopRankings>
     </Section>
->>>>>>> ffab6c75ed50d3891e1a2d0c245b689048d70b3d
+    >>>>>>> ffab6c75ed50d3891e1a2d0c245b689048d70b3d
     </body>
 </Layout>
 
 <style>
     * {
-  box-sizing: border-box;
-}
+        box-sizing: border-box;
+    }
 
-    .titulo{
+    .titulo {
         width: auto;
         height: 20%;
         background-color: #B8B2E6;
     }
 
-    .tierlist{
+    .tierlist {
         padding: 30px;
         border-radius: 30px;
         width: auto;
         height: 80%;
         background-color: #9C93DC;
     }
-    .tierlist li{
+
+    .tierlist li {
         padding: 10px;
         border-radius: 30px;
         background-color: #897ED5;
         list-style-type: none;
     }
 
-    .Rank{
-        
+    .Rank {
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -216,7 +216,7 @@ import TopRankings from "../components/topRankings.astro";
         margin-top: 40px;
     }
 
-    .canciones{
+    .canciones {
         border-radius: 30px;
         padding: 20px;
         margin: 30px;
@@ -226,7 +226,7 @@ import TopRankings from "../components/topRankings.astro";
         background-color: #B8B2E6;
     }
 
-    .artistas{
+    .artistas {
         border-radius: 30px;
         padding: 20px;
         margin: 30px;
@@ -236,7 +236,7 @@ import TopRankings from "../components/topRankings.astro";
         background-color: #B8B2E6;
     }
 
-    .albums{
+    .albums {
         border-radius: 30px;
         padding: 20px;
         margin: 20px;
