@@ -19,7 +19,7 @@ import TopRankings from "../components/topRankings.astro";
     </head>
     <body>
     <Section>
-        <div class="flex flex-nowrap overflow-x-auto w-96 max-h-[275px] justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8">
+        <div class="flex flex-nowrap overflow-x-auto w-2/6  max-h-fit justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -40,8 +40,8 @@ import TopRankings from "../components/topRankings.astro";
             </div>
         </div>
 
-        <div class="flex flex-row items-center rounded-3xl bg-backgroundSecondary w-[90rem] gap-2 p-8">
-            <div class="texto">
+        <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6">
+            <div class=" justify-between texto">
                 <p class="currently text font-bold text-3xl">
                     recientemente escuchado
                 </p>
@@ -108,21 +108,21 @@ import TopRankings from "../components/topRankings.astro";
 
     <Section flexOrientation="flex-row" extraClass="gap-6">
         <TopRankings>
-            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Ranking Canciones"></TitleIcon>
             <div class="w-full">
                 <List number="1" title="hola"></List>
                 <List number="1" title="hola"></List>
             </div>
         </TopRankings>
         <TopRankings>
-            <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Top Artistas"></TitleIcon>
+            <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Ranking Artistas"></TitleIcon>
             <div class="w-full">
                 <List number="1" title="hola"></List>
                 <List number="1" title="hola"></List>
             </div>
         </TopRankings>
         <TopRankings>
-            <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Top Albums"></TitleIcon>
+            <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Ranking Albums"></TitleIcon>
             <div class="w-full">
                 <List number="1" title="hola"></List>
                 <List number="1" title="hola"></List>

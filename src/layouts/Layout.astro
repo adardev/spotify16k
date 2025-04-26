@@ -20,20 +20,19 @@ const currentYear = new Date().getFullYear();
 
     <div class="search-wrapper">
         <!-- Botón visible inicialmente -->
-        <div id="btn-search" class="search-input">
-            <p>Buscar</p>
+        <div id="btn-search" class="flex items-center pl-[20px] search-input">
+            <p class="mb-0">Buscar</p>
         </div>
-
         <!-- Barra con input y opciones -->
-        <div id="barra-busqueda" style="display: none;">
+        <div id="barra-busqueda" >
             <input type="text" class="search-input" placeholder="Buscar..."/>
 
             <!-- Lista dentro del wrapper -->
-            <ul id="box-search">
-                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 1</li>
-                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 2</li>
-                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 3</li>
-                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 4</li>
+            <ul class="w-full" id="box-search">
+                <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 1</li>
+                <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 2</li>
+                <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 3</li>
+                <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 4</li>
             </ul>
         </div>
     </div>
@@ -81,13 +80,16 @@ const currentYear = new Date().getFullYear();
     margin: 0 auto;
     }
 
-#btn-search,
+#btn-search{
+
+}
+
 #barra-busqueda {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding-left: 20px;
+    padding: 0 20px 20px 20px;
     }
 
 #btn-search p{
