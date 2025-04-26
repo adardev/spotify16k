@@ -5,9 +5,27 @@ import List from "../components/list.astro";
 import Section from "../components/section.astro"
 ---
 <Layout>
-    <Widget w="200">
-        <p class="currently text font-bold text-3xl">Top Artistas</p>
-    </Widget>
+    <div class="contenedor">
+        <Widget w="200">
+          <p class="currently text font-bold text-3xl">Top Artistas</p>
+        </Widget>
+        <div class="tiempo">
+            <form action="" class="formulario">
+            <label class="opcion">
+                <span class="texto">Un día</span>
+                <input type="radio" name="time" value="1dia" checked>
+            </label>
+            <label class="opcion">
+                <span class="texto">Un mes</span>
+                <input type="radio" name="time" value="1mes">    
+            </label>
+            <label class="opcion">
+                <span class="texto">Un año</span>
+                <input type="radio" name="time" value="1ano">
+            </label>
+            </form>
+        </div>
+    </div>
     <div class="lista">
     <Section flexOrientation="flex-col" extraClass="shadow-md">
         <List number="1" title="null"></List>
@@ -32,5 +50,29 @@ import Section from "../components/section.astro"
     }
     .lista{
     margin-top: 50px;
+    }
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+    .tiempo{
+        display: flex;
+        flex-direction: column;
+        background-color: #B8B2E6;
+    }
+    .opcion {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+    }
+    .formulario {
+        display: flex;
+        flex-direction: column;
+    }   
+    .texto {
+        display: inline-block;
+        width: 80px; 
+        text-align: right;
     }
 </style>
