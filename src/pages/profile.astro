@@ -1,9 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Widget from "../components/widget.astro";
+import TitleIcon from "../components/titleIcon.astro";
+import List from "../components/list.astro";
+import Section from "../components/section.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-  <Layout>
+<Layout>
+  <head>
+    <title>Perfil</title>
+</head>
+<div class="informacion">
+  <img src="/dist/covers/apt.jpg" class="foto rounded-circle" alt="">
+  <Widget flex="row" width="w-[400px]" height="h-auto">
+    <p>Nombre de usuario</p>
+    <p>Correo electronico</p>
+    <p>Followers</p>
+  </Widget>
+</div>
+</Layout>
 
-  </Layout>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .informacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    background-color: #D4D1F0;
+  }
+
+  .foto {
+    height: 400px;
+    width: 400px;
+    display: block;
+  }
+
+</style>

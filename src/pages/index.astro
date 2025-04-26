@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TopCard from "../components/topCard.astro";
+import Widget from "../components/widget.astro";
+import TitleIcon from "../components/titleIcon.astro";
+import List from "../components/list.astro";
+import Section from "../components/section.astro";
+import TopRankings from "../components/topRankings.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -13,8 +18,8 @@ import TopCard from "../components/topCard.astro";
         <title>Inicio</title>
     </head>
     <body>
-    <section class="recomendaciones">
-        <div class="carrusel">
+    <Section>
+        <div class="flex flex-nowrap overflow-x-auto w-96 max-h-[275px] justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -35,8 +40,7 @@ import TopCard from "../components/topCard.astro";
             </div>
         </div>
 
-
-        <div class="recientemente">
+        <div class="flex flex-row items-center rounded-3xl bg-backgroundSecondary w-[90rem] gap-2 p-8">
             <div class="texto">
                 <p class="currently text font-bold text-3xl">
                     recientemente escuchado
@@ -58,6 +62,7 @@ import TopCard from "../components/topCard.astro";
                 <img src="/dist/covers/apt.jpg" alt="" class="portada">
             </div>
         </div>
+<<<<<<< HEAD
     </section>
 
     <section class="tops">
@@ -103,6 +108,69 @@ import TopCard from "../components/topCard.astro";
         </div>
 
     </section>
+=======
+
+    </Section>
+    <Section flexOrientation="flex-row" extraClass="gap-6">
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <Widget width="w-fit" height="h-fit" flex="flex-col">
+                <a class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                    <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
+                </a>
+                <p class="titulo font-bold text-2xl">
+                    Ver
+                </p>
+            </Widget>
+        </TopRankings>
+    </Section>
+
+    <Section flexOrientation="flex-row" extraClass="gap-6">
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <div class="w-full">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <div class="w-full">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
+        <TopRankings>
+            <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Top Canciones"></TitleIcon>
+            <div class="w-full">
+                <List number="1" title="hola"></List>
+                <List number="1" title="hola"></List>
+            </div>
+        </TopRankings>
+    </Section>
+>>>>>>> ffab6c75ed50d3891e1a2d0c245b689048d70b3d
     </body>
 </Layout>
 
@@ -185,7 +253,6 @@ import TopCard from "../components/topCard.astro";
 
     .tops {
         display: flex;
-        justify-content: center;
         gap: 60px;
         padding: 20px;
     }
@@ -216,27 +283,6 @@ import TopCard from "../components/topCard.astro";
         width: 250px;
         border-radius: 10%;
         margin-top: 40px;
-    }
-
-    .recomendaciones {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        padding: 25px;
-        border-radius: 30px;
-        background-color: #b8b2e6;
-    }
-
-    .carrusel {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        width: 60%;
-        scroll-snap-type: x mandatory;
-        scroll-padding-left: 20px;
-        padding-left: 20px;
-        max-height: 275px;
-        justify-content: center;
     }
 
     /* Personalización de la barra de scroll */

@@ -1,10 +1,9 @@
 ---
-const {title, iconSrc,  coverSrc} = Astro.props;
+import TitleIcon from "./titleIcon.astro";
+const {title, iconSrc, coverSrc} = Astro.props;
 ---
 
-
-<button class="flex flex-col justify-start items-center p-12 w-96 h-[40rem] rounded-3xl border-none bg-backgroundPrimary">
-    <img src={iconSrc} alt="" class="h-16">
-    <p class="font-bold text-2xl">{title}</p>
-    <img src={coverSrc} alt="" class="img-card w-64  h-64">
-</button>
+<a class="flex flex-col justify-start items-center p-8 w-[15rem] h-[30rem] rounded-3xl border-none bg-backgroundSecondary py-12">
+    <TitleIcon iconSrc={iconSrc} title={title}]></TitleIcon>
+    <img src={coverSrc} alt="" class="img-card w-64 h-64 rounded-3xl">
+</a>

@@ -1,0 +1,36 @@
+---
+import Widget from "../components/widget.astro";
+import Layout from "../layouts/Layout.astro";
+import List from "../components/list.astro";
+import Section from "../components/section.astro"
+---
+<Layout>
+    <Widget w="200">
+        <p class="currently text font-bold text-3xl">Top Canciones</p>
+    </Widget>
+    <div class="lista">
+    <Section flexOrientation="flex-col" extraClass="shadow-md">
+        <List number="1" title="null"></List>
+        <List number="2" title="null"></List>
+        <List number="3" title="null"></List>
+        <List number="4" title="null"></List>
+        <List number="5" title="null"></List>
+        <List number="6" title="null"></List>
+        <List number="7" title="null"></List>
+        <List number="8" title="null"></List>
+        <List number="9" title="null"></List>
+        <List number="10" title="null"></List>
+    </Section>
+    </div>
+</Layout>
+
+<style>
+    body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    }
+    .lista{
+    margin-top: 50px;
+    }
+</style>
