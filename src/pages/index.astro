@@ -59,6 +59,7 @@ import TopCard from "../components/topCard.astro";
             </div>
         </div>
     </section>
+
     <section class="tops">
         <TopCard
         iconSrc="/dist/icons/profile_icon.svg"
@@ -73,10 +74,104 @@ import TopCard from "../components/topCard.astro";
         title="Canciones"
         coverSrc="/dist/covers/apt.jpg"/>
     </section>
+
+    <section class="Rank">
+        <div class="canciones">
+            <div class="titulo">
+
+            </div>
+            <div class="tierlist">
+                <li class="lista-canciones">1</li>
+            </div>
+
+        </div>
+        <div class="artistas">
+            <div class="titulo">
+
+            </div>
+            <div class="tierlist">
+                <li class="lista-artistas">2</li>
+            </div>
+        </div>
+        <div class="albums">
+            <div class="titulo">
+
+            </div>
+            <div class="tierlist">
+               <li class="lista-album">3</li> 
+            </div>
+        </div>
+
+    </section>
     </body>
 </Layout>
 
 <style>
+    * {
+  box-sizing: border-box;
+}
+
+    .titulo{
+        width: auto;
+        height: 20%;
+        background-color: #B8B2E6;
+    }
+
+    .tierlist{
+        padding: 30px;
+        border-radius: 30px;
+        width: auto;
+        height: 80%;
+        background-color: #9C93DC;
+    }
+    .tierlist li{
+        padding: 10px;
+        border-radius: 30px;
+        background-color: #897ED5;
+        list-style-type: none;
+    }
+
+    .Rank{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: auto;
+        height: 2000px;
+        margin-top: 40px;
+    }
+
+    .canciones{
+        border-radius: 30px;
+        padding: 20px;
+        margin: 30px;
+        flex-direction: row;
+        width: 90%;
+        height: 33%;
+        background-color: #B8B2E6;
+    }
+
+    .artistas{
+        border-radius: 30px;
+        padding: 20px;
+        margin: 30px;
+        flex-direction: row;
+        width: 90%;
+        height: 33%;
+        background-color: #B8B2E6;
+    }
+
+    .albums{
+        border-radius: 30px;
+        padding: 20px;
+        margin: 20px;
+        flex-direction: row;
+        width: 90%;
+        height: 33%;
+        background-color: #B8B2E6;
+    }
+
     p {
         margin: 10px;
     }

@@ -16,25 +16,130 @@ const currentYear = new Date().getFullYear();
     <title>MAQUETADO1</title>
 </head>
 <body>
-<header>
-	<RoundedLink/>
+      
+        <header>
+          <RoundedLink />
+        
+          <div class="search-wrapper">
+            <!-- Botón visible inicialmente -->
+            <div id="btn-search" class="search-input">
+              <p>Buscar</p>
+            </div>
+        
+            <!-- Barra con input y opciones -->
+            <div id="barra-busqueda" style="display: none;">
+              <input type="text" class="search-input" placeholder="Buscar..." />
+        
+              <!-- Lista dentro del wrapper -->
+              <ul id="box-search">
+                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 1</li>
+                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 2</li>
+                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 3</li>
+                <li><i class="fa-thin fa-magnifying-glass"></i> Opción 4</li>
+              </ul>
+            </div>
+          </div>
+      
+        <RoundedLink />
+      </header>
+      
+      <!-- Fondo oscuro oculto -->
+      <div id="cover" style="display: none;"></div>
+      
+      <main>
+        <slot />
+      </main>
 
-    <div class="search-container">
-        <input type="search" class="search-input" placeholder="Buscar...">
-    </div>
-
-	<RoundedLink/>
-</header>
-
-<main>
-    <slot/>
-</main>
-
+      <script>
+        const btnSearch = document.getElementById('btn-search');
+        const barraBusqueda = document.getElementById('barra-busqueda');
+        const searchWrapper = document.querySelector('.search-wrapper');
+      
+        btnSearch.addEventListener('click', () => {
+          btnSearch.style.display = 'none';
+          barraBusqueda.style.display = 'block';
+        });
+      
+        // Detectar clic fuera de la barra de búsqueda
+        document.addEventListener('click', (e) => {
+          const isClickInside = searchWrapper.contains(e.target);
+      
+          if (!isClickInside) {
+            barraBusqueda.style.display = 'none';
+            btnSearch.style.display = 'flex';
+          }
+        });
+      </script>
+      
+      
 </body>
 </html>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    * {
+  box-sizing: border-box;
+}
+    
+    .search-wrapper {
+  position: relative;
+  width: 540px;
+  margin: 0 auto;
+}
+
+#btn-search,
+#barra-busqueda {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 20px;
+}
+
+#btn-search p{
+
+}
+
+#barra-busqueda {
+  background-color: #B8B2E6;
+  border-radius: 30px;
+  
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-input {
+  width: 100%;
+  height: 50px;
+  
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: #B8B2E6;
+  margin-bottom: 10px;
+}
+
+#box-search {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#box-search li {
+  padding: 10px 20px;
+  background-color: #a393e6;
+  margin-bottom: 8px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#box-search li:hover {
+  background-color: #8a7cd1;
+}
+
 
     html {
         padding: 25px;
@@ -61,20 +166,10 @@ const currentYear = new Date().getFullYear();
     }
 
     .search-container {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 50%;
-    }
-
-    .search-input {
-        width: 500px;
-        height: 50px;
-        padding: 12px 20px;
-        font-size: 16px;
-        border-radius: 50px;
-        outline: none;
-        background-color: #B8B2E6;
-        border: none;
     }
 </style>
