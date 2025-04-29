@@ -43,19 +43,14 @@ import TopRankings from "../components/topRankings.astro";
         <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6">
             <div class=" justify-between texto">
                 <p class="currently text font-bold text-3xl">
-                    recientemente escuchado
+                    Recientemente escuchado
                 </p>
                 <p class="titulo font-bold text-2xl">
-                    sona
+                    APT
                 </p>
                 <p class="autor font-bold text-2xl">
-                    Zedd
+                    Bruno Mars
                 </p>
-                <div class="otros oyentes">
-                    <p class="textoG">
-                        otros oyentes
-                    </p>
-                </div>
             </div>
 
             <div class="imagen">
@@ -82,7 +77,7 @@ import TopRankings from "../components/topRankings.astro";
             <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Tus Artistas"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
                 <a href="/topartists" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
-                    <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
+                    <img src="dist/covers/glass-animals.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topartists" class="no-underline text-black">
                     <p class="titulo font-bold text-2xl">
@@ -95,7 +90,7 @@ import TopRankings from "../components/topRankings.astro";
             <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Tus Albums"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
                 <a href="/topalbums" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
-                    <img src="dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
+                    <img src="dist/covers/plastic-beach.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topalbums" class="no-underline text-black">
                     <p class="titulo font-bold text-2xl">
@@ -110,22 +105,46 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Ranking Canciones"></TitleIcon>
             <div class="w-full">
-                <List number="1" title="hola"></List>
-                <List number="1" title="hola"></List>
+                <List number="1" title="null"></List>
+                <List number="2" title="null"></List>
+                <List number="3" title="hola"></List>
+                <List number="4" title="hola"></List>
+                <List number="5" title="hola"></List>
+                <List number="6" title="hola"></List>
+                <List number="7" title="hola"></List>
+                <List number="8" title="hola"></List>
+                <List number="9" title="hola"></List>
+                <List number="10" title="hola"></List>
             </div>
         </TopRankings>
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Ranking Artistas"></TitleIcon>
             <div class="w-full">
-                <List number="1" title="hola"></List>
-                <List number="1" title="hola"></List>
+                <List number="1" title="null"></List>
+                <List number="2" title="null"></List>
+                <List number="3" title="null"></List>
+                <List number="4" title="null"></List>
+                <List number="5" title="null"></List>
+                <List number="6" title="null"></List>
+                <List number="7" title="null"></List>
+                <List number="8" title="null"></List>
+                <List number="9" title="null"></List>
+                <List number="10" title="null"></List>
             </div>
         </TopRankings>
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Ranking Albums"></TitleIcon>
             <div class="w-full">
-                <List number="1" title="hola"></List>
-                <List number="1" title="hola"></List>
+                <List number="1" title="null"></List>
+                <List number="2" title="null"></List>
+                <List number="3" title="null"></List>
+                <List number="4" title="null"></List>
+                <List number="5" title="null"></List>
+                <List number="6" title="null"></List>
+                <List number="7" title="null"></List>
+                <List number="8" title="null"></List>
+                <List number="9" title="null"></List>
+                <List number="10" title="null"></List>
             </div>
         </TopRankings>
     </Section>
@@ -193,7 +212,7 @@ import TopRankings from "../components/topRankings.astro";
         border-radius: 10px;
     }
 
-
+    
     .elemento {
         display: flex;
         justify-content: center;
@@ -207,7 +226,6 @@ import TopRankings from "../components/topRankings.astro";
         border-radius: 25px;
         overflow: hidden;
     }
-
 
     .elemento img {
         width: 100%;

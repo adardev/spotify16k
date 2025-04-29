@@ -18,15 +18,11 @@ const currentYear = new Date().getFullYear();
     <RoundedLink iconSrc="/dist/icons/home_icon.svg" link="/"></RoundedLink>
 
     <div class="search-wrapper">
-        <!-- Botón visible inicialmente -->
-        <div id="btn-search" class="flex items-center pl-[20px] search-input">
+        <div id="btn-search" class="flex items-center pl-[20px] rounded-2xl search-input">
             <p class="mb-0">Buscar</p>
         </div>
-        <!-- Barra con input y opciones -->
         <div id="barra-busqueda">
             <input type="text" class="search-input" placeholder="Buscar..."/>
-
-            <!-- Lista dentro del wrapper -->
             <ul class="w-full" id="box-search">
                 <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 1</li>
                 <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 2</li>
@@ -89,7 +85,7 @@ const currentYear = new Date().getFullYear();
         padding: 0 20px 20px 20px;
 
         background-color: #B8B2E6;
-        border-radius: 30px;
+        border-radius: 25px;
 
         z-index: 10;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
