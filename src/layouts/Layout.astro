@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import RoundedLink from "../components/roundedLink.astro";
 import {ClientRouter} from 'astro:transitions';
+
+const currentYear = new Date().getFullYear();
 ---
 <!DOCTYPE html>
 <html class="flex justify-center items-center" lang="en">
@@ -44,6 +46,14 @@ import {ClientRouter} from 'astro:transitions';
 <main>
     <slot/>
 </main>
+
+<footer>
+    		<footer>
+			<p class="text_weight_bold text_color_dark text_size_medium">
+				Tekkure Systems &copy; <span>{currentYear}</span>
+			</p>
+		</footer>
+</footer>
 
 <script>
     const btnSearch = document.getElementById('btn-search');
