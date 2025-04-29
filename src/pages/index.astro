@@ -19,7 +19,7 @@ import TopRankings from "../components/topRankings.astro";
     </head>
     <body>
     <Section>
-        <div class="flex flex-nowrap overflow-x-auto w-2/6  max-h-fit justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8">
+        <div class="flex flex-nowrap overflow-x-auto w-2/6  max-h-fit justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -199,7 +199,7 @@ import TopRankings from "../components/topRankings.astro";
 
     /* Personalización de la barra de scroll */
     .carrusel::-webkit-scrollbar {
-        height: 8px;
+        display: none;
     }
 
     .carrusel::-webkit-scrollbar-track {

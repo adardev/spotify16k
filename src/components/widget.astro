@@ -3,6 +3,6 @@ const {width, height, flex} = Astro.props
 ---
 
 
-<section class={`flex flex-col p-2 rounded-2xl justify-center items-center mb-2 bg-backgroundSecondary`}>
+<section class={`flex flex-col p-2 rounded-2xl justify-center items-center mb-2 bg-backgroundSecondary ${width} ${height}`}>
 <slot/>
 </section>

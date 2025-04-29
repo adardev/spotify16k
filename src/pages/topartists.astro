@@ -6,13 +6,13 @@ import Section from "../components/section.astro"
 ---
 <Layout>
     <div class="contenedor">
-        <Widget w="200">
+        <Widget width="w-[350px]" height="h-auto">
           <p class="currently text font-bold text-3xl">Top Artistas</p>
         </Widget>
-        <Section class="tiempo rounded" flex="flex-col">
+        <Section extraClass="shadow-lg" flex="flex-col">
             <form action="" class="formulario">
             <label class="opcion">
-                <span class="texto">4 Semanas</span>
+                <span class="texto">1 mes</span>
                 <input type="radio" name="time" value="1dia" checked>
             </label>
             <label class="opcion">
@@ -54,6 +54,8 @@ import Section from "../components/section.astro"
     .contenedor{
         display: flex;
         flex-direction: row;
+        justify-content:space-between;
+        gap: 100px;
     }
     .opcion {
         display: flex;
@@ -63,6 +65,8 @@ import Section from "../components/section.astro"
     .formulario {
         display: flex;
         flex-direction: column;
+        padding: 10px;
+        gap: 10px;
     }   
     .texto {
         display: inline-block;
@@ -79,8 +83,5 @@ import Section from "../components/section.astro"
 input:checked {
   background-color: #7c6fde; 
 }
-    .tiempo{
-        padding: 20px;
-    }
 
 </style>

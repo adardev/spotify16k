@@ -1,7 +1,15 @@
 ---
-const {number, title} = Astro.props
+const {number, title, src} = Astro.props
+var src1;
+if(src==null){
+    src1="/dist/covers/apt.jpg";
+}
+else{
+    src1=src;
+}
 ---
-<div class="flex flex-row w-full h-fit p-2 rounded-2xl justify-center items-center mb-2 bg-backgroundSecondary">
+<div class="flex flex-row w-full h-fit p-2 rounded-2xl justify-start items-start mb-2 bg-backgroundSecondary">
+    <img src={src1} alt="aca" class="w-10 h-10 me-3">
     <p class="font-medium text-xl mr-2 mb-0">{number}</p>
     <p class="font-medium text-xl m-0">{title}</p>
 </div>
