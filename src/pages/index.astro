@@ -48,9 +48,11 @@ import TopRankings from "../components/topRankings.astro";
                 <p class="titulo font-bold text-2xl">
                     APT
                 </p>
-                <p class="autor font-bold text-2xl">
-                    Bruno Mars
-                </p>
+                <a href="/artist">
+                    <p class="autor font-bold text-2xl">
+                        Bruno Mars
+                    </p>
+                </a>
             </div>
 
             <div class="imagen">
@@ -63,7 +65,8 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Tus Canciones"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topsongs" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topsongs"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="/dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topsongs" class="no-underline text-black">
@@ -76,7 +79,8 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Tus Artistas"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topartists" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topartists"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/glass-animals.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topartists" class="no-underline text-black">
@@ -89,7 +93,8 @@ import TopRankings from "../components/topRankings.astro";
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Tus Albums"></TitleIcon>
             <Widget width="w-fit" height="h-fit" flex="flex-col">
-                <a href="/topalbums" class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
+                <a href="/topalbums"
+                   class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/plastic-beach.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topalbums" class="no-underline text-black">
@@ -212,7 +217,7 @@ import TopRankings from "../components/topRankings.astro";
         border-radius: 10px;
     }
 
-    
+
     .elemento {
         display: flex;
         justify-content: center;
