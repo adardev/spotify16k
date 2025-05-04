@@ -4,6 +4,10 @@ import RoundedLink from "../components/roundedLink.astro";
 import {ClientRouter} from 'astro:transitions';
 
 const currentYear = new Date().getFullYear();
+
+const clientID="8081705010b9456a9d67e1451789c2f0";
+const clientSecret="d7107b87854c429c805f5250dc406d03";
+const redirect=""
 ---
 <!DOCTYPE html>
 <html class="flex justify-center items-center" lang="en">
@@ -42,7 +46,7 @@ const currentYear = new Date().getFullYear();
 
     </div>
 
-    <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>
+    <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/login"></RoundedLink>
 </header>
 
 <main>
