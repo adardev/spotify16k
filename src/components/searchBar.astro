@@ -1,3 +1,61 @@
 ---
-
+// Este componente maneja la lógica de apertura/cierre de la barra de búsqueda
 ---
+<div class="search-wrapper relative w-[540px] my-0 mx-auto">
+    <div id="btn-search"
+         class="flex items-center pl-[20px] rounded-3xl w-full h-12 text-xl border-none outline-0 bg-backgroundPrimary mb-2.5 cursor-pointer">
+        <p class="mb-0">Buscar</p>
+    </div>
+
+    <div id="barra-busqueda"
+         class="hidden absolute top-0 left-0 w-full p-5 pt-0 bg-backgroundPrimary rounded-3xl z-10 shadow-md">
+        <input type="text"
+               class="w-full h-12 text-xl border-none outline-0 bg-backgroundPrimary mb-2.5"
+               placeholder="Buscar..."/>
+        <ul class="w-full list-none p-0 m-0" id="box-search">
+            <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 1</li>
+            <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 2</li>
+            <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 3</li>
+            <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 4</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    #box-search li {
+        padding: 10px 20px;
+        background-color: #a393e6;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    #box-search li:hover {
+        background-color: #8a7cd1;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btnSearch = document.getElementById('btn-search');
+        const barraBusqueda = document.getElementById('barra-busqueda');
+        const searchWrapper = document.querySelector('.search-wrapper');
+
+        if (btnSearch && barraBusqueda && searchWrapper) {
+            btnSearch.addEventListener('click', () => {
+                btnSearch.style.display = 'none';
+                barraBusqueda.style.display = 'block';
+            });
+
+            document.addEventListener('click', (e) => {
+                const isClickInside = searchWrapper.contains(e.target);
+                if (!isClickInside) {
+                    barraBusqueda.style.display = 'none';
+                    btnSearch.style.display = 'flex';
+                }
+            });
+        }
+    });
+</script>

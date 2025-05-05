@@ -1,6 +1,7 @@
 @tailwsind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -11,4 +12,11 @@ html, body {
     margin: 0;
     background-color: #D4D1F0;
     font-family: "Montserrat", sans-serif;;
+}
+
+
+main {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow: auto;
 }
