@@ -1,8 +1,8 @@
 ---
-const {iconSrc, link} = Astro.props
+const {iconSrc, link, id} = Astro.props
 ---
 
-<a href={link}>
+<a href={link} id={id}>
     <div class="w-12 h-12 bg-backgroundPrimary rounded-full">
         <img class="icon p-2 w-full h-full" src={iconSrc}>
     </div>
