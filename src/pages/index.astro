@@ -151,6 +151,7 @@ import TopRankings from "../components/topRankings.astro";
     </body>
 </Layout>
 <script>
+    console.log(localStorage.spotifyToken)
     const token = localStorage.getItem("spotify_token");
     if (token) {
         fetch("https://api.spotify.com/v1/me/player/currently-playing", {
@@ -163,13 +164,8 @@ import TopRankings from "../components/topRankings.astro";
             if (data?.item) {
                 const trackName = data.item.name;
                 const artistName = data.item.artists[0].name;
-
-                // Cambiar el contenido en el DOM
                 document.getElementById("titulo").textContent = trackName;
                 document.getElementById("autor").textContent = artistName;
-
-                // Cambiar link si quieres:
-                document.querySelector("a[href='/artist']").href = `/artist/${data.item.artists[0].id}`;
             }
         })
         .catch(err => console.error("Error al obtener la canción actual:", err));
