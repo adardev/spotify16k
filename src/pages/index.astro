@@ -56,10 +56,10 @@ import TopRankings from "../components/topRankings.astro";
         </div>
 
     </Section>
-    <Section flexOrientation="flex-row" extraClass="gap-6">
+    <Section flexOrientation="flex-row" extraClass="gap-0">
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Tus Canciones"></TitleIcon>
-            <Widget width="w-fit" height="h-fit" flex="flex-col">
+            <Widget width="w-72" height="h-fit" flex="flex-col">
                 <a href="/topsongs"
                    class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="/dist/covers/apt.jpg" alt="" class="w-52 h-52 rounded-2xl">
@@ -73,7 +73,7 @@ import TopRankings from "../components/topRankings.astro";
         </TopRankings>
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/artist_icon.svg" title="Tus Artistas"></TitleIcon>
-            <Widget width="w-fit" height="h-fit" flex="flex-col">
+            <Widget width="w-72" height="h-fit" flex="flex-col">
                 <a href="/topartists"
                    class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/glass-animals.jpg" alt="" class="w-52 h-52 rounded-2xl">
@@ -87,7 +87,7 @@ import TopRankings from "../components/topRankings.astro";
         </TopRankings>
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/album_icon.svg" title="Tus Albums"></TitleIcon>
-            <Widget width="w-fit" height="h-fit" flex="flex-col">
+            <Widget width="w-72" height="h-fit" flex="flex-col">
                 <a href="/topalbums"
                    class="flex flex-col justify-start items-center p-2 w-full h-full rounded-3xl border-none bg-backgroundSecondary">
                     <img src="dist/covers/plastic-beach.jpg" alt="" class="w-52 h-52 rounded-2xl">
@@ -177,6 +177,7 @@ import TopRankings from "../components/topRankings.astro";
         console.warn("No hay token disponible");
     }
 </script>
+
 <style>
     p {
         margin: 10px;
@@ -311,6 +312,4 @@ import TopRankings from "../components/topRankings.astro";
         border-radius: 20px;
         max-width: 250px;
     }
-
-
 </style>
