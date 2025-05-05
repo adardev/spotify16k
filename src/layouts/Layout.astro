@@ -44,11 +44,21 @@ import SignInWithSpotify from "../components/signInWithSpotify.astro";
     <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>
 </header>
 
-<slot/>
+<main>
+    <slot/>
+</main>
+
+<!--
+<footer>
+    <p class="text_weight_bold text_color_dark text_size_medium">
+        Tekkure Systems &copy; <span>{currentYear}</span>
+    </p>
+</footer>
+-->
 
 <script>
-    const client_id = "8081705010b9456a9d67e1451789c2f0"; //token de la api: ids, pagina donde se redirige y permisos
-    const client_secret = "d7107b87854c429c805f5250dc406d03";
+    const client_id="8081705010b9456a9d67e1451789c2f0"; //token de la api: ids, pagina donde se redirige y permisos
+    const client_secret="d7107b87854c429c805f5250dc406d03";
     const redirect_uri = "https://darkturquoise-seahorse-894972.hostingersite.com/"
     const scope = "user-top-read user-read-playback-state user-read-currently-playing"
 
@@ -64,12 +74,19 @@ import SignInWithSpotify from "../components/signInWithSpotify.astro";
     const btnSearch = document.getElementById('btn-search');
     const barraBusqueda = document.getElementById('barra-busqueda');
     const searchWrapper = document.querySelector('.search-wrapper');
-
-    btnLogin?.addEventListener("click", (e) => {
+    
+    btnLogin?.addEventListener("click",(e)=>{
         e.preventDefault();
         const spotifyLink = `${auth_url}?${params}`;
         window.location.href = spotifyLink;
     }); //listener de login, tenemos que hacer que verifique que ya inicio y hacerle una condicional
+
+    const code = new URLSearchParams(window.location.search).get("code");
+    if (code) { //cuando si estas logeado
+        obtenerToken(code).then(token => { 
+        localStorage.setItem("spotify_token", token); //uso similar a session de php, hace ualmacenamiento local del login
+    });
+    }
 
     btnSearch.addEventListener('click', () => {
         btnSearch.style.display = 'none';
@@ -85,6 +102,26 @@ import SignInWithSpotify from "../components/signInWithSpotify.astro";
             btnSearch.style.display = 'flex';
         }
     });
+
+    async function obtenerToken(code) {
+    const b64 = btoa(`${client_id}:${client_secret}`);
+    
+    const res = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+            "Authorization": `Basic ${b64}`,
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            grant_type: "authorization_code",
+            code: code,
+            redirect_uri: redirect_uri
+        })
+    });
+
+    const data = await res.json();
+    return data.access_token.toString();
+}
 </script>
 
 </body>
