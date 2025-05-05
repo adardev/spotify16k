@@ -151,6 +151,7 @@ import TopRankings from "../components/topRankings.astro";
     </body>
 </Layout>
 <script>
+    console.log(localStorage.spotifyToken)
     const token = localStorage.getItem("spotify_token");
     if (token) {
         fetch("https://api.spotify.com/v1/me/player/currently-playing", {
