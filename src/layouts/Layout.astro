@@ -1,10 +1,9 @@
 ---
 import "../styles/global.css";
-import RoundedLink from "../components/roundedLink.astro";
 import {ClientRouter} from 'astro:transitions';
+import RoundedLink from "../components/roundedLink.astro";
 import SignInWithSpotify from "../components/signInWithSpotify.astro";
 ---
-<!DOCTYPE html>
 <html class="flex justify-center items-center" lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -36,7 +35,6 @@ import SignInWithSpotify from "../components/signInWithSpotify.astro";
                 <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 3</li>
                 <li class="w-full"><i class="fa-thin fa-magnifying-glass"></i> Opción 4</li>
             </ul>
-
         </div>
 
     </div>
@@ -46,9 +44,7 @@ import SignInWithSpotify from "../components/signInWithSpotify.astro";
     <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>
 </header>
 
-<main>
     <slot/>
-</main>
 
 <!--
 <footer>
