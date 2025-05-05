@@ -164,13 +164,8 @@ import TopRankings from "../components/topRankings.astro";
             if (data?.item) {
                 const trackName = data.item.name;
                 const artistName = data.item.artists[0].name;
-
-                // Cambiar el contenido en el DOM
                 document.getElementById("titulo").textContent = trackName;
                 document.getElementById("autor").textContent = artistName;
-
-                // Cambiar link si quieres:
-                document.querySelector("a[href='/artist']").href = `/artist/${data.item.artists[0].id}`;
             }
         })
         .catch(err => console.error("Error al obtener la canción actual:", err));
