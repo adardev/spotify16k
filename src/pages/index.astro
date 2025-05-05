@@ -14,7 +14,7 @@ import TopRankings from "../components/topRankings.astro";
     </head>
     <body>
     <Section>
-        <div class="flex flex-nowrap overflow-x-auto w-2/6  max-h-fit justify-center pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
+        <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8  carrusel">
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
@@ -35,7 +35,7 @@ import TopRankings from "../components/topRankings.astro";
             </div>
         </div>
 
-        <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6">
+        <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6 ml-0">
             <div class=" justify-between texto">
                 <p class="currently text font-bold text-3xl">
                     Recientemente escuchado
@@ -149,30 +149,30 @@ import TopRankings from "../components/topRankings.astro";
         </TopRankings>
     </Section>
     </body>
+    <script>
+        console.log(localStorage.spotifyToken)
+        const token = localStorage.getItem("spotify_token");
+        if (token) {
+            fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.item) {
+                        const trackName = data.item.name;
+                        const artistName = data.item.artists[0].name;
+                        document.getElementById("titulo").textContent = trackName;
+                        document.getElementById("autor").textContent = artistName;
+                    }
+                })
+                .catch(err => console.error("Error al obtener la canción actual:", err));
+        } else {
+            console.warn("No hay token disponible");
+        }
+    </script>
 </Layout>
-<script>
-    console.log(localStorage.spotifyToken)
-    const token = localStorage.getItem("spotify_token");
-    if (token) {
-        fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data?.item) {
-                const trackName = data.item.name;
-                const artistName = data.item.artists[0].name;
-                document.getElementById("titulo").textContent = trackName;
-                document.getElementById("autor").textContent = artistName;
-            }
-        })
-        .catch(err => console.error("Error al obtener la canción actual:", err));
-    } else {
-        console.warn("No hay token disponible");
-    }
-</script>
 
 <style>
     p {
@@ -243,8 +243,8 @@ import TopRankings from "../components/topRankings.astro";
         flex: 0 0 auto;
         margin: 0 20px;
         background-color: #9c93dc;
-        width: 275px;
-        height: 275px;
+        width: 250px;
+        height: 250px;
         scroll-snap-align: center;
         border-radius: 25px;
         overflow: hidden;
