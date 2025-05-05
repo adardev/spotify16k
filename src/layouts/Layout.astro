@@ -2,9 +2,7 @@
 import "../styles/global.css";
 import RoundedLink from "../components/roundedLink.astro";
 import {ClientRouter} from 'astro:transitions';
-
-const currentYear = new Date().getFullYear();
-
+import SignInWithSpotify from "../components/signInWithSpotify.astro";
 ---
 <!DOCTYPE html>
 <html class="flex justify-center items-center" lang="en">
@@ -43,7 +41,9 @@ const currentYear = new Date().getFullYear();
 
     </div>
 
-    <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile" id="autorizar"></RoundedLink>
+    <SignInWithSpotify/>
+
+    <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>
 </header>
 
 <main>
@@ -59,7 +59,6 @@ const currentYear = new Date().getFullYear();
 -->
 
 <script>
-    let access_token="";
     const client_id="8081705010b9456a9d67e1451789c2f0"; //token de la api: ids, pagina donde se redirige y permisos
     const client_secret="d7107b87854c429c805f5250dc406d03";
     const redirect_uri = "https://darkturquoise-seahorse-894972.hostingersite.com/"
@@ -71,12 +70,13 @@ const currentYear = new Date().getFullYear();
         client_id: client_id,
         scope: scope,
         redirect_uri: redirect_uri,
-        }).toString();
+    }).toString();
 
-    const btnLogin= document.getElementById('autorizar');
+    const btnLogin = document.getElementById('autorizar');
     const btnSearch = document.getElementById('btn-search');
     const barraBusqueda = document.getElementById('barra-busqueda');
     const searchWrapper = document.querySelector('.search-wrapper');
+    
     btnLogin?.addEventListener("click",(e)=>{
         e.preventDefault();
         const spotifyLink = `${auth_url}?${params}`;
@@ -132,10 +132,10 @@ const currentYear = new Date().getFullYear();
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-    main{
-        		flex-grow: 1; /* Esto asegura que el main ocupe el espacio restante */
-		padding: 1.5rem;
-		overflow: auto;
+    main {
+        flex-grow: 1; /* Esto asegura que el main ocupe el espacio restante */
+        padding: 1.5rem;
+        overflow: auto;
     }
 
     #box-search li {
@@ -152,9 +152,10 @@ const currentYear = new Date().getFullYear();
         background-color: #8a7cd1;
     }
 
-    button{
-        
+    button {
+
     }
+
     .search-container {
         cursor: pointer;
         display: flex;
