@@ -159,7 +159,7 @@ import TopRankings from "../components/topRankings.astro";
                 }
             }).then(res => res.json()).then(data => {
                 if (data?.item) { 
-                    const track = data.item[0].track;
+                    const track = data.item;
                     const trackName = track.name;
                     const artistName = track.artists[0].name;
                     const trackImage = track.album.images[0].url;
@@ -178,7 +178,7 @@ import TopRankings from "../components/topRankings.astro";
                     //ciclo para relacionar lo que es el carrusel con los ultimos tracks
                     let contador;
                     for(contador=0;contador<6;contador=contador+1){
-                        document.getElementById("carrusel"+contador+1).src = data.items[contador].track.album.images[0].url;
+                        document.getElementById("carrusel"+(contador+1)).src = data.items[contador].track.album.images[0].url;
                     }
                 }
                 })
