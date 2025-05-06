@@ -51,7 +51,7 @@ import TopRankings from "../components/topRankings.astro";
             </div>
 
             <div class="imagen">
-                <img src="/dist/covers/apt.jpg" alt="" class="portada">
+                <img src="/dist/covers/apt.jpg" alt="" class="portada" id="currentImage">
             </div>
         </div>
 
@@ -157,14 +157,14 @@ import TopRankings from "../components/topRankings.astro";
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
-            })
-                .then(res => res.json())
-                .then(data => {
+            }).then(res => res.json()).then(data => {
                     if (data?.item) {
                         const trackName = data.item.name;
                         const artistName = data.item.artists[0].name;
+                        const trackImage = data.item.album.images[0].url;
                         document.getElementById("titulo").textContent = trackName;
                         document.getElementById("autor").textContent = artistName;
+                        document.getElementById("currentImage").src=trackImage;
                     }
                 })
                 .catch(err => console.error("Error al obtener la canción actual:", err));
