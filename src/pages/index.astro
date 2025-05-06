@@ -158,17 +158,17 @@ import TopRankings from "../components/topRankings.astro";
                     Authorization: `Bearer ${token}`
                 }
             }).then(res => res.json()).then(data => {
-                    if (data?.item) {
-                        const trackName = data.item[0].name;
-                        const artistName = data.item[0].artists[0].name;
-                        const trackImage = data.item[0].album.images[0].url;
-                        document.getElementById("titulo").textContent = trackName;
-                        document.getElementById("autor").textContent = artistName;
-                        document.getElementById("currentImage").src=trackImage; 
+                if (data?.items?.length > 0) {
+                    const track = data.items[0].track;
+                    const trackName = track.name;
+                    const artistName = track.artists[0].name;
+                    const trackImage = track.album.images[0].url;
 
-
-                        document.getElementById("carrusel6").src=trackImage;
-                    }
+                    document.getElementById("titulo").textContent = trackName;
+                    document.getElementById("autor").textContent = artistName;
+                    document.getElementById("currentImage").src = trackImage;
+                    document.getElementById("carrusel6").src = trackImage;
+                }
                 })
                 .catch(err => console.error("Error al obtener la canción actual:", err));
         } else {
