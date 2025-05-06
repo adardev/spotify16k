@@ -164,7 +164,7 @@ import TopRankings from "../components/topRankings.astro";
                         const trackImage = data.item.album.images[0].url;
                         document.getElementById("titulo").textContent = trackName;
                         document.getElementById("autor").textContent = artistName;
-                        document.getElementById("currentImage").src=trackImage; //algo que modificar
+                        document.getElementById("currentImage").src=trackImage; //algo que modificar 2.0
                     }
                 })
                 .catch(err => console.error("Error al obtener la canción actual:", err));
