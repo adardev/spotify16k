@@ -153,18 +153,20 @@ import TopRankings from "../components/topRankings.astro";
         console.log(localStorage.spotifyToken)
         const token = localStorage.getItem("spotify_token");
         if (token) {
-            fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+            fetch("https://api.spotify.com/v1/me/player/recently-played?limit=7", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             }).then(res => res.json()).then(data => {
                     if (data?.item) {
-                        const trackName = data.item.name;
-                        const artistName = data.item.artists[0].name;
-                        const trackImage = data.item.album.images[0].url;
+                        const trackName = data.item[0].name;
+                        const artistName = data.item[0].artists[0].name;
+                        const trackImage = data.item[0].album.images[0].url;
                         document.getElementById("titulo").textContent = trackName;
                         document.getElementById("autor").textContent = artistName;
-                        document.getElementById("currentImage").src=trackImage; //algo que modificar 2.0
+                        document.getElementById("currentImage").src=trackImage; 
+
+
                         document.getElementById("carrusel6").src=trackImage;
                     }
                 })
