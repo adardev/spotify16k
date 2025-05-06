@@ -16,22 +16,22 @@ import TopRankings from "../components/topRankings.astro";
     <Section>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
             <div class="elemento">
-                <img id="carrusel1" src="/dist/covers/apt.jpg" alt="">
-            </div>
-            <div class="elemento">
-                <img id="carrusel2" src="/dist/covers/apt.jpg" alt="">
-            </div>
-            <div class="elemento">
-                <img id="carrusel3" src="/dist/covers/apt.jpg" alt="">
-            </div>
-            <div class="elemento">
-                <img id="carrusel4" src="/dist/covers/apt.jpg" alt="">
+                <img id="carrusel6"src="/dist/covers/apt.jpg" alt="">
             </div>
             <div class="elemento">
                 <img id="carrusel5" src="/dist/covers/apt.jpg" alt="">
             </div>
             <div class="elemento">
-                <img id="carrusel6"src="/dist/covers/apt.jpg" alt="">
+                <img id="carrusel4" src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img id="carrusel3" src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img id="carrusel2" src="/dist/covers/apt.jpg" alt="">
+            </div>
+            <div class="elemento">
+                <img id="carrusel1" src="/dist/covers/apt.jpg" alt="">
             </div>
         </div>
 
@@ -153,13 +153,13 @@ import TopRankings from "../components/topRankings.astro";
         console.log(localStorage.spotifyToken)
         const token = localStorage.getItem("spotify_token");
         if (token) {
-            fetch("https://api.spotify.com/v1/me/player/recently-played?limit=7", {
+            fetch("https://api.spotify.com/v1/me/player/currently-playing", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             }).then(res => res.json()).then(data => {
-                if (data?.items?.length > 0) { 
-                    const track = data.items[0].track;
+                if (data?.item) { 
+                    const track = data.item[0].track;
                     const trackName = track.name;
                     const artistName = track.artists[0].name;
                     const trackImage = track.album.images[0].url;
@@ -167,15 +167,21 @@ import TopRankings from "../components/topRankings.astro";
                     document.getElementById("titulo").textContent = trackName;
                     document.getElementById("autor").textContent = artistName;
                     document.getElementById("currentImage").src = trackImage;
-
+                }
+                })
+            fetch("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(res => res.json()).then(data => {
+                if (data?.items?.length > 0) { 
                     //ciclo para relacionar lo que es el carrusel con los ultimos tracks
                     let contador;
-                    for(contador=1;contador<7;contador=contador+1){
-                        document.getElementById("carrusel"+contador).src = data.items[contador].track.album.images[0].url;
+                    for(contador=0;contador<6;contador=contador+1){
+                        document.getElementById("carrusel"+contador+1).src = data.items[contador].track.album.images[0].url;
                     }
                 }
                 })
-                .catch(err => console.error("Error al obtener la canción actual:", err));
         } else {
             console.warn("No hay token disponible");
         }
