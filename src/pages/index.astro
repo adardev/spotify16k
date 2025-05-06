@@ -16,7 +16,7 @@ import TopRankings from "../components/topRankings.astro";
     <Section>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
             <div class="elemento">
-                <img id="currentImage"src="/dist/covers/apt.jpg" alt="">
+                <img id="carrusel1"src="/dist/covers/apt.jpg" alt="">
             </div>
             <div class="elemento">
                 <img src="/dist/covers/apt.jpg" alt="">
@@ -31,7 +31,7 @@ import TopRankings from "../components/topRankings.astro";
                 <img src="/dist/covers/apt.jpg" alt="">
             </div>
             <div class="elemento">
-                <img id="currentImage" src="/dist/covers/apt.jpg" alt="">
+                <img id="carrusel6" src="/dist/covers/apt.jpg" alt="">
             </div>
         </div>
 
@@ -165,6 +165,8 @@ import TopRankings from "../components/topRankings.astro";
                         document.getElementById("titulo").textContent = trackName;
                         document.getElementById("autor").textContent = artistName;
                         document.getElementById("currentImage").src=trackImage; //algo que modificar 2.0
+                        document.getElementById("carrusel1").src=trackImage;
+                        document.getElementById("carrusel6").src=trackImage;
                     }
                 })
                 .catch(err => console.error("Error al obtener la canción actual:", err));
