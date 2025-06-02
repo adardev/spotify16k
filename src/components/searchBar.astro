@@ -1,12 +1,8 @@
----
-// SearchBar.astro
----
 <div class="search-wrapper relative w-[540px] my-0 mx-auto">
   <div id="btn-search"
        class="flex items-center pl-[20px] rounded-3xl w-full h-12 text-xl border-none outline-0 bg-backgroundPrimary mb-2.5 cursor-pointer">
       <p class="mb-0">Buscar</p>
   </div>
-
   <div id="barra-busqueda"
        class="hidden absolute top-0 left-0 w-full p-5 pt-0 bg-backgroundPrimary rounded-3xl z-10 shadow-md">
       <input type="text"
@@ -20,7 +16,6 @@
       </ul>
   </div>
 </div>
-
 <script is:client="load">
   document.addEventListener("DOMContentLoaded", () => {
       const btnSearch = document.getElementById('btn-search');

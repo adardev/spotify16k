@@ -1,29 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Widget from "../components/widget.astro";
-import TitleIcon from "../components/titleIcon.astro";
-import List from "../components/list.astro";
 import Section from "../components/section.astro";
 ---
 <Layout>
     <head>
         <title>Perfil</title>
     </head>
-
     <Section flexOrientation="flex-col" extraClass="!p-0" width="w-full" height="h-auto">
         <img class="h-96 rounded-t-3xl object-cover" src="./dist/covers/glass-animals.jpg">
         <p class="font-bold container text-5xl absolute top-[25rem] left-80 text-white">Nombre de artista</p>
         <p class="font-medium text-xl p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea fugit nobis repudiandae sequi totam. Amet consequatur corporis culpa ea explicabo facilis nobis omnis voluptates. Animi fugiat libero quis reprehenderit sit?</p>
     </Section>
 </Layout>
-
 <style>
     body {
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
-
     .informacion {
         display: flex;
         justify-content: space-between;
@@ -32,11 +26,9 @@ import Section from "../components/section.astro";
         padding: 20px;
         background-color: #D4D1F0;
     }
-
     .foto {
         height: 400px;
         width: 400px;
         display: block;
     }
-
 </style>
