@@ -34,7 +34,6 @@ import TopRankings from "../components/topRankings.astro";
                 <img id="carrusel1" src="/dist/covers/apt.jpg" alt="">
             </div>
         </div>
-
         <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6 ml-0">
             <div class=" justify-between texto">
                 <p class="currently text font-bold text-3xl">
@@ -49,7 +48,6 @@ import TopRankings from "../components/topRankings.astro";
                     </p>
                 </a>
             </div>
-
             <div class="imagen">
                 <img src="/dist/covers/apt.jpg" alt="" class="portada" id="currentImage">
             </div>
@@ -161,7 +159,6 @@ import TopRankings from "../components/topRankings.astro";
                     const trackName = track.name;
                     const artistName = track.artists[0].name;
                     const trackImage = track.album.images[0].url;
-
                     document.getElementById("titulo").textContent = trackName;
                     document.getElementById("autor").textContent = artistName;
                     document.getElementById("currentImage").src = trackImage;
