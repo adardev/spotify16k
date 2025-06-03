@@ -1,15 +1,32 @@
 ---
 import { supabase } from '../db/supabase';
 
-const { data, error } = await supabase.from("todos").select('*');
----
+type Usuario = {
+  id_usuario: number;
+  nombre: string;
+  apellido: string;
+};
 
-{
-  (
+const { data: usuarios, error } = await supabase
+  .from('usuario')
+  .select('*') as { data: Usuario[] | null; error: any };
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Usuarios</title>
+  </head>
+  <body>
+    <h1>Usuarios Registrados</h1>
+
+    {error && <p>Error: {error.message}</p>}
+
     <ul>
-      {data.map((entry) => (
-        <li>{entry.name}</li>
+      {usuarios?.map((usuario) => (
+        <li>
+          {usuario.nombre} {usuario.apellido}
+        </li>
       ))}
     </ul>
-  )
-}
+  </body>
+</html>
