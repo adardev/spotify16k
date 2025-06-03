@@ -1,8 +1,6 @@
 ---
-const {width, height, flex} = Astro.props
+const {width, height, flex, extraClass} = Astro.props
 ---
-
-
-<section class={`flex flex-col p-2 rounded-2xl justify-center items-center mb-2 bg-backgroundSecondary`}>
-<slot/>
+<section class={`flex ${flex} p-2 rounded-3xl justify-center items-center mb-2 bg-backgroundSecondary ${width} ${height} ${extraClass}`}>
+    <slot/>
 </section>

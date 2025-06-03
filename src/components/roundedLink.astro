@@ -1,9 +1,8 @@
 ---
-const {iconSrc, link} = Astro.props
+const {iconSrc, link, extraClass} = Astro.props
 ---
-
 <a href={link}>
-    <div class="w-12 h-12 bg-backgroundPrimary rounded-full">
+    <div class={`"w-12 h-12 bg-backgroundPrimary rounded-full cursor-pointer ${extraClass}"`}>
         <img class="icon p-2 w-full h-full" src={iconSrc}>
     </div>
 </a>

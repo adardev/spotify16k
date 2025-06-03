@@ -5,9 +5,27 @@ import List from "../components/list.astro";
 import Section from "../components/section.astro"
 ---
 <Layout>
-    <Widget w="200">
-        <p class="currently text font-bold text-3xl">Top Albumes</p>
-    </Widget>
+    <div class="contenedor">
+        <Widget width="w-[350px]" height="h-auto">
+          <p class="currently text font-bold text-3xl">Top Albums</p>
+        </Widget>
+        <Section extraClass="shadow-lg" flex="flex-col">
+            <form action="" class="formulario">
+            <label class="opcion">
+                <span class="texto">1 mes</span>
+                <input type="radio" name="time" value="1dia" checked>
+            </label>
+            <label class="opcion">
+                <span class="texto">6 meses</span>
+                <input type="radio" name="time" value="1mes">    
+            </label>
+            <label class="opcion">
+                <span class="texto">Toda la vida</span>
+                <input type="radio" name="time" value="1ano">
+            </label>
+            </form>
+        </Section>
+    </div>
     <div class="lista">
     <Section flexOrientation="flex-col" extraClass="shadow-md">
         <List number="1" title="null"></List>
@@ -23,7 +41,6 @@ import Section from "../components/section.astro"
     </Section>
     </div>
 </Layout>
-
 <style>
     body {
     display: flex;
@@ -32,5 +49,37 @@ import Section from "../components/section.astro"
     }
     .lista{
     margin-top: 50px;
+    }
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        gap: 100px;
+    }
+    .opcion {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }   
+    .texto {
+        display: inline-block;
+        width: 80px; 
+        text-align: right;
+    }
+    input {
+        appearance: none; 
+        border-radius: 50%; 
+        width: 30px;
+        height: 30px;
+        background-color: #9C93DC;
+    }
+    input:checked {
+        background-color: #7c6fde; 
     }
 </style>

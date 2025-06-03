@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.4"
+    "astro": "^5.5.4",
+    "postgres": "^3.4.7"
   },
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",

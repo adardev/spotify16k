@@ -1,0 +1,55 @@
+---
+import Widget from "../components/widget.astro";
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/section.astro"
+---
+<Layout>
+    <Section flexOrientation="flex-row" extraClass="p-5">
+        <Widget width="w-50" height="h-50">
+            <img src="/dist/covers/apt.jpg" class="w-75 h-75">
+        </Widget>
+        <div class="d-flex flex-column gap-3">
+            <p class="titulo font-bold text-2xl">
+                APT(Busqueda realizada)
+            </p>
+            <form action="" method="">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="ranking">
+                      <input type="radio" id="star5" name="rating"/>
+                      <label for="star5" title="5 estrellas">★</label>               
+                      <input type="radio" id="star4" name="rating"/>
+                      <label for="star4" title="4 estrellas">★</label>              
+                      <input type="radio" id="star3" name="rating"/>
+                      <label for="star3" title="3 estrellas">★</label>                
+                      <input type="radio" id="star2" name="rating"/>
+                      <label for="star2" title="2 estrellas">★</label>
+                      <input type="radio" id="star1" name="rating"/>
+                      <label for="star1" title="1 estrella">★</label>
+                    </div>
+                  </div>
+                  <input type="text" class="w-full h-12 fs-6 border-none outline-0 bg-backgroundPrimary mb-2.5 form-control" placeholder="Comentar"/>
+                <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+              </form>
+        </div>
+    </Section>
+</Layout>
+<style>
+    body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .ranking {
+        direction: rtl;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    label {
+        font-size: 3rem;
+        color: #ffffff;
+    }
+    input:checked ~ label {
+      color: #6050dc;
+    }
+  </style>
