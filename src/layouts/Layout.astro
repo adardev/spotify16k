@@ -18,7 +18,7 @@ import SearchBar from "../components/searchBar.astro";
     <RoundedLink iconSrc="/dist/icons/home_icon.svg" link="/"></RoundedLink>
     <SearchBar/>
     <SignInWithSpotify/>
-        <!--<RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>-->
+    <!--<RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile"></RoundedLink>-->
 </header>
 <slot/>
 <script>
@@ -62,7 +62,6 @@ import SearchBar from "../components/searchBar.astro";
                     redirect_uri: redirect_uri
                 })
             });
-
             const data = await res.json();
             return data.access_token.toString();
         }
@@ -70,11 +69,3 @@ import SearchBar from "../components/searchBar.astro";
 </script>
 </body>
 </html>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    main {
-        flex-grow: 1;
-        padding: 1.5rem;
-        overflow: auto;
-    }
-</style>

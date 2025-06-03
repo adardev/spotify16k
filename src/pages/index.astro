@@ -12,7 +12,7 @@ import TopRankings from "../components/topRankings.astro";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inicio</title>
     </head>
-    <body>
+    <body class="flex flex-column bg-[background-primary] gap-12">
     <Section>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
             <div class="elemento">
@@ -35,21 +35,21 @@ import TopRankings from "../components/topRankings.astro";
             </div>
         </div>
         <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6 ml-0">
-            <div class=" justify-between texto">
-                <p class="currently text font-bold text-3xl">
+            <div class="flex flex-col justify-center flex-grow-1 w-1/2">
+                <p class="currently text font-bold text-3xl m-2">
                     Recientemente escuchado
                 </p>
-                <p id="titulo" class="titulo font-bold text-2xl">
+                <p id="titulo" class="titulo font-bold text-2xl m-2">
                     APT
                 </p>
                 <a href="/artist">
-                    <p id="autor" class="autor font-bold text-2xl">
+                    <p id="autor" class="autor font-bold text-2xl m-2">
                         Bruno Mars
                     </p>
                 </a>
             </div>
-            <div class="imagen">
-                <img src="/dist/covers/apt.jpg" alt="" class="portada" id="currentImage">
+            <div class="flex justify-center items-center flex-grow-1 rounded-md w-64">
+                <img src="/dist/covers/apt.jpg" alt="" class="h-64 rounded-xs max-h-64" id="currentImage">
             </div>
         </div>
     </Section>
@@ -76,7 +76,7 @@ import TopRankings from "../components/topRankings.astro";
                     <img src="dist/covers/glass-animals.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topartists" class="no-underline text-black">
-                    <p class="titulo font-bold text-2xl">
+                    <p class="titulo font-bold text-2xl m-2">
                         Ver
                     </p>
                 </a>
@@ -90,7 +90,7 @@ import TopRankings from "../components/topRankings.astro";
                     <img src="dist/covers/plastic-beach.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topalbums" class="no-underline text-black">
-                    <p class="titulo font-bold text-2xl">
+                    <p class="titulo font-bold text-2xl m-2">
                         Ver
                     </p>
                 </a>
@@ -183,45 +183,6 @@ import TopRankings from "../components/topRankings.astro";
     </script>
 </Layout>
 <style>
-    p {
-        margin: 10px;
-    }x
-    body {
-        display: flex;
-        flex-direction: column;
-        background-color: #D4D1F0;
-        gap: 20px;
-    }
-    .tops {
-        display: flex;
-        gap: 60px;
-        padding: 20px;
-    }
-    .cardview {
-        background-color: #B8B2E6;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        height: 500px;
-        width: 400px;
-        border-radius: 5%;
-        border: none;
-    }
-    .infografia {
-        background-color: #9c93dc;
-        border-radius: 50%;
-        height: 60px;
-        width: 60px;
-        margin-top: 20px;
-    }
-    .img-card {
-        height: 250px;
-        width: 250px;
-        border-radius: 10%;
-        margin-top: 40px;
-    }
     .carrusel::-webkit-scrollbar {
         display: none;
     }
@@ -258,39 +219,7 @@ import TopRankings from "../components/topRankings.astro";
     .elemento:last-child {
         margin-right: 20px;
     }
-    .recientemente {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 14px;
-        border-radius: 30px;
-        background-color: #9c93dc;
-        width: 50%;
-        height: 100%;
-        gap: 10px;
-    }
-    .texto {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 2;
-        width: 50%;
-    }
     .otros.oyentes {
         margin-top: auto;
-    }
-    .imagen {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-grow: 1;
-        border-radius: 20px;
-        width: 275px;
-    }
-    .portada {
-        width: 250px;
-        height: 250px;
-        border-radius: 20px;
-        max-width: 250px;
     }
 </style>
