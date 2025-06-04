@@ -15,22 +15,22 @@ import TopRankings from "../components/topRankings.astro";
     <body class="flex flex-column bg-[background-primary] gap-12">
     <Section>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel6"src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel5" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel4" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel3" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel2" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel1" src="/dist/covers/apt.jpg" alt="">
             </div>
         </div>
@@ -193,19 +193,6 @@ import TopRankings from "../components/topRankings.astro";
     .carrusel::-webkit-scrollbar-thumb {
         background: #9c93dc;
         border-radius: 10px;
-    }
-    .elemento {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 auto;
-        margin: 0 20px;
-        background-color: #9c93dc;
-        width: 250px;
-        height: 250px;
-        scroll-snap-align: center;
-        border-radius: 25px;
-        overflow: hidden;
     }
     .elemento img {
         width: 100%;

@@ -16,15 +16,15 @@ import Section from "../components/section.astro"
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="ranking">
                       <input type="radio" id="star5" name="rating"/>
-                      <label for="star5" title="5 estrellas">★</label>               
-                      <input type="radio" id="star4" name="rating"/>
-                      <label for="star4" title="4 estrellas">★</label>              
-                      <input type="radio" id="star3" name="rating"/>
-                      <label for="star3" title="3 estrellas">★</label>                
+                      <label class="text-xl text-white" for="star5" title="5 estrellas">★</label>               
+                      <input  type="radio" id="star4" name="rating"/>
+                      <label class="text-xl text-white" for="star4" title="4 estrellas">★</label>              
+                      <input  type="radio" id="star3" name="rating"/>
+                      <label class="text-xl text-white" for="star3" title="3 estrellas">★</label>                
                       <input type="radio" id="star2" name="rating"/>
-                      <label for="star2" title="2 estrellas">★</label>
+                      <label class="text-xl text-white" for="star2" title="2 estrellas">★</label>
                       <input type="radio" id="star1" name="rating"/>
-                      <label for="star1" title="1 estrella">★</label>
+                      <label class="text-xl text-white" for="star1" title="1 estrella">★</label>
                     </div>
                   </div>
                   <input type="text" class="w-full h-12 fs-6 border-none outline-0 bg-backgroundPrimary mb-2.5 form-control" placeholder="Comentar"/>
@@ -39,12 +39,5 @@ import Section from "../components/section.astro"
     }
     input[type="radio"] {
         display: none;
-    }
-    label {
-        font-size: 3rem;
-        color: #ffffff;
-    }
-    input:checked ~ label {
-      color: #6050dc;
     }
   </style>
