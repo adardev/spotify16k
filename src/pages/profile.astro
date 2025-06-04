@@ -6,8 +6,8 @@ import Widget from "../components/widget.astro";
   <head>
     <title>Perfil</title>
 </head>
-<div class="informacion">
-  <img src="/dist/icons/profile_icon.svg" class="foto rounded-circle" alt="">
+<div class="flex justify-between items-start w-full p-8 bg-backgroundPrimary">
+  <img src="/dist/icons/profile_icon.svg" class="block w-96 h-96 rounded-circle" alt="">
   <Widget flex="row" width="w-[400px]" height="h-auto">
     <p>Nombre de usuario</p>
     <p>Correo electronico</p>
@@ -15,23 +15,3 @@ import Widget from "../components/widget.astro";
   </Widget>
 </div>
 </Layout>
-<style>
-  body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .informacion {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    padding: 20px;
-    background-color: #D4D1F0;
-  }
-  .foto {
-    height: 400px;
-    width: 400px;
-    display: block;
-  }
-</style>

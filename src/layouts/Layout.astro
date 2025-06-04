@@ -5,7 +5,6 @@ import RoundedLink from "../components/roundedLink.astro";
 import SignInWithSpotify from "../components/signInWithSpotify.astro";
 import SearchBar from "../components/searchBar.astro";
 ---
-
 <html lang="en" class="flex justify-center items-center">
   <head>
     <meta charset="UTF-8" />
@@ -15,18 +14,15 @@ import SearchBar from "../components/searchBar.astro";
     <ClientRouter />
   </head>
   <body class="flex flex-col justify-center items-center w-[70rem] pt-8 gap-12">
-
     <header class="w-full flex justify-between h-12 gap-12">
       <RoundedLink iconSrc="/dist/icons/home_icon.svg" link="/" />
       <SearchBar />
       <SignInWithSpotify />
       <!-- <RoundedLink iconSrc="/dist/icons/profile_icon.svg" link="/profile" /> -->
     </header>
-
     <main class="w-full">
       <slot />
     </main>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const client_id = "8081705010b9456a9d67e1451789c2f0";
@@ -41,7 +37,6 @@ import SearchBar from "../components/searchBar.astro";
           scope,
           redirect_uri
         }).toString();
-
         const btnLogin = document.getElementById("autorizar");
         if (btnLogin) {
           btnLogin.addEventListener("click", (e) => {
@@ -50,14 +45,12 @@ import SearchBar from "../components/searchBar.astro";
             window.location.href = spotifyLink;
           });
         }
-
         const code = new URLSearchParams(window.location.search).get("code");
         if (code) {
           obtenerToken(code).then(token => {
             localStorage.setItem("spotify_token", token);
           });
         }
-
         async function obtenerToken(code) {
           const b64 = btoa(`${client_id}:${client_secret}`);
           const res = await fetch("https://accounts.spotify.com/api/token", {
@@ -77,6 +70,5 @@ import SearchBar from "../components/searchBar.astro";
         }
       });
     </script>
-
   </body>
 </html>
