@@ -14,6 +14,7 @@ import TopRankings from "../components/topRankings.astro";
     </head>
     <body class="flex flex-column bg-[background-primary] gap-12">
     <Section>
+        <p id="nombreUsuario" class="text-black text-2xl font-bold m-4"></p>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
             <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel6"src="/dist/covers/apt.jpg" alt="">
@@ -180,6 +181,19 @@ import TopRankings from "../components/topRankings.astro";
         } else {
             console.warn("No hay token disponible");
         }
+
+        fetch("https://api.spotify.com/v1/me", {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+    })
+    .then(res => res.json())
+    .then(userData => {
+        if (userData.display_name) {
+            document.getElementById("nombreUsuario").textContent = `Hola, ${userData.display_name}`;
+        }
+    })
+    .catch(error => console.error("Error al obtener el nombre del usuario:", error));
     </script>
 </Layout>
 <style>
