@@ -12,49 +12,47 @@ import TopRankings from "../components/topRankings.astro";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inicio</title>
     </head>
-    <body>
+    <body class="flex flex-column bg-[background-primary] gap-12">
     <Section>
+        <p id="nombreUsuario" class="text-black text-2xl font-bold m-4"></p>
         <div class="flex flex-nowrap overflow-x-auto items-center justify-center w-2/6 pl-2 snap-x snap-mandatory scroll-pl-5 p-8 carrusel">
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel6"src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel5" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel4" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel3" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel2" src="/dist/covers/apt.jpg" alt="">
             </div>
-            <div class="elemento">
+            <div class="flex justify-center items-center mr-5 bg-backgroundPrimary w-64 h-64 overflow-hidden rounded-md">
                 <img id="carrusel1" src="/dist/covers/apt.jpg" alt="">
             </div>
         </div>
-
         <div class="flex flex-no items-center rounded-3xl bg-backgroundSecondary w-4/6 gap-2 m-6 p-6 ml-0">
-            <div class=" justify-between texto">
-                <p class="currently text font-bold text-3xl">
+            <div class="flex flex-col justify-center flex-grow-1 w-1/2">
+                <p class="currently text font-bold text-3xl m-2">
                     Recientemente escuchado
                 </p>
-                <p id="titulo" class="titulo font-bold text-2xl">
+                <p id="titulo" class="titulo font-bold text-2xl m-2">
                     APT
                 </p>
                 <a href="/artist">
-                    <p id="autor" class="autor font-bold text-2xl">
+                    <p id="autor" class="autor font-bold text-2xl m-2">
                         Bruno Mars
                     </p>
                 </a>
             </div>
-
-            <div class="imagen">
-                <img src="/dist/covers/apt.jpg" alt="" class="portada" id="currentImage">
+            <div class="flex justify-center items-center flex-grow-1 rounded-md w-64">
+                <img src="/dist/covers/apt.jpg" alt="" class="h-64 rounded-xs max-h-64" id="currentImage">
             </div>
         </div>
-
     </Section>
     <Section flexOrientation="flex-row" extraClass="gap-0">
         <TopRankings>
@@ -79,7 +77,7 @@ import TopRankings from "../components/topRankings.astro";
                     <img src="dist/covers/glass-animals.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topartists" class="no-underline text-black">
-                    <p class="titulo font-bold text-2xl">
+                    <p class="titulo font-bold text-2xl m-2">
                         Ver
                     </p>
                 </a>
@@ -93,14 +91,13 @@ import TopRankings from "../components/topRankings.astro";
                     <img src="dist/covers/plastic-beach.jpg" alt="" class="w-52 h-52 rounded-2xl">
                 </a>
                 <a href="/topalbums" class="no-underline text-black">
-                    <p class="titulo font-bold text-2xl">
+                    <p class="titulo font-bold text-2xl m-2">
                         Ver
                     </p>
                 </a>
             </Widget>
         </TopRankings>
     </Section>
-
     <Section flexOrientation="flex-row" extraClass="gap-6">
         <TopRankings>
             <TitleIcon iconSrc="/dist/icons/track_icon.svg" title="Ranking Canciones"></TitleIcon>
@@ -158,12 +155,11 @@ import TopRankings from "../components/topRankings.astro";
                     Authorization: `Bearer ${token}`
                 }
             }).then(res => res.json()).then(data => {
-                if (data?.item) { 
+                if (data?.item) {
                     const track = data.item;
                     const trackName = track.name;
                     const artistName = track.artists[0].name;
                     const trackImage = track.album.images[0].url;
-
                     document.getElementById("titulo").textContent = trackName;
                     document.getElementById("autor").textContent = artistName;
                     document.getElementById("currentImage").src = trackImage;
@@ -174,7 +170,7 @@ import TopRankings from "../components/topRankings.astro";
                     Authorization: `Bearer ${token}`
                 }
             }).then(res => res.json()).then(data => {
-                if (data?.items?.length > 0) { 
+                if (data?.items?.length > 0) {
                     //ciclo para relacionar lo que es el carrusel con los ultimos tracks
                     let contador;
                     for(contador=0;contador<6;contador=contador+1){
@@ -185,140 +181,46 @@ import TopRankings from "../components/topRankings.astro";
         } else {
             console.warn("No hay token disponible");
         }
+
+        fetch("https://api.spotify.com/v1/me", {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+    })
+    .then(res => res.json())
+    .then(userData => {
+        if (userData.display_name) {
+            document.getElementById("nombreUsuario").textContent = `Hola, ${userData.display_name}`;
+        }
+    })
+    .catch(error => console.error("Error al obtener el nombre del usuario:", error));
     </script>
 </Layout>
-
 <style>
-    p {
-        margin: 10px;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        background-color: #D4D1F0;
-        gap: 20px;
-    }
-
-    .tops {
-        display: flex;
-        gap: 60px;
-        padding: 20px;
-    }
-
-    .cardview {
-        background-color: #B8B2E6;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        height: 500px;
-        width: 400px;
-        border-radius: 5%;
-        border: none;
-    }
-    .infografia {
-        background-color: #9c93dc;
-        border-radius: 50%;
-        height: 60px;
-        width: 60px;
-        margin-top: 20px;
-    }
-
-    .img-card {
-        height: 250px;
-        width: 250px;
-        border-radius: 10%;
-        margin-top: 40px;
-    }
-
-    /* Personalización de la barra de scroll */
     .carrusel::-webkit-scrollbar {
         display: none;
     }
-
     .carrusel::-webkit-scrollbar-track {
         background: #b8b2e6;
         border-radius: 10px;
     }
-
     .carrusel::-webkit-scrollbar-thumb {
         background: #9c93dc;
         border-radius: 10px;
     }
-
-
-    .elemento {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 auto;
-        margin: 0 20px;
-        background-color: #9c93dc;
-        width: 250px;
-        height: 250px;
-        scroll-snap-align: center;
-        border-radius: 25px;
-        overflow: hidden;
-    }
-
     .elemento img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
+        object-fit: cover;
         border-radius: 25px;
     }
-
-    /* Asegurar que el primer y último elemento no se vean cortados */
     .elemento:first-child {
         margin-left: 20px;
     }
-
     .elemento:last-child {
         margin-right: 20px;
     }
-
-    .recientemente {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 14px;
-        border-radius: 30px;
-        background-color: #9c93dc;
-        width: 50%;
-        height: 100%;
-        gap: 10px;
-    }
-
-
-    .texto {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 2;
-        width: 50%;
-    }
-
-    /* Mueve el texto 'otros oyentes' hasta abajo */
     .otros.oyentes {
         margin-top: auto;
-    }
-
-    /* Imagen dentro de 'recientemente' */
-    .imagen {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-grow: 1;
-        border-radius: 20px;
-        width: 275px;
-    }
-
-    .portada {
-        width: 250px;
-        height: 250px;
-        border-radius: 20px;
-        max-width: 250px;
     }
 </style>
