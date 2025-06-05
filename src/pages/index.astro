@@ -5,7 +5,6 @@ import TitleIcon from "../components/titleIcon.astro";
 import List from "../components/list.astro";
 import Section from "../components/section.astro";
 import TopRankings from "../components/topRankings.astro";
-import { supabase } from '../db/supabase.js';
 ---
 <Layout>
     <head>
@@ -201,35 +200,20 @@ fetch("https://api.spotify.com/v1/me", {
 
     document.getElementById("nombreUsuario").textContent = `Hola, ${nombreUsuario}`;
 
-    // Verificar si el usuario ya existe
-    const { data: existingUser, error: selectError } = await supabase
-      .from("usuario")
-      .select("*")
-      .eq("spotify_id", spotifyId)
-      .single();
-
-    if (!existingUser) {
-      // Insertar si no existe
-      const { data, error } = await supabase.from("usuario").insert([
-        {
-          nombre: nombreUsuario,
-          spotify_id: spotifyId,
-        }
-      ]);
-
-      if (error) {
-        console.error("Error al insertar usuario:", error);
-      } else {
-        console.log("Usuario insertado:", data);
-      }
-    } else {
-      console.log("Usuario ya existe:", existingUser);
-    }
+    // Llamar a tu endpoint propio
+    fetch("/api/endpoint", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre: nombreUsuario, spotify_id: spotifyId })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data.inserted ? "Usuario insertado" : "Usuario ya existe");
+    })
+    .catch(err => console.error("Error al verificar usuario:", err));
   }
 })
 .catch(error => console.error("Error al obtener datos de Spotify:", error));
-
-
     </script>
 </Layout>
 
