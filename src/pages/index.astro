@@ -6,7 +6,7 @@ import List from "../components/list.astro";
 import Section from "../components/section.astro";
 import TopRankings from "../components/topRankings.astro";
 
-import {supabase} from "../db/supabase.js"
+import {supabase} from "../../public/db/supabase.js"
 ---
 <Layout>
     <head>
@@ -214,21 +214,21 @@ fetch("https://api.spotify.com/v1/me", {
       const { data, error } = await supabase.from("usuario").insert([
         {
           nombre: nombreUsuario,
-          spotify_id: spotifyId
+          spotify_id: spotifyId,
         }
       ]);
 
       if (error) {
-        console.error("❌ Error al insertar usuario:", error);
+        console.error("Error al insertar usuario:", error);
       } else {
-        console.log("✅ Usuario insertado:", data);
+        console.log("Usuario insertado:", data);
       }
     } else {
-      console.log("🟢 Usuario ya existe:", existingUser);
+      console.log("Usuario ya existe:", existingUser);
     }
   }
 })
-.catch(error => console.error("❌ Error al obtener datos de Spotify:", error));
+.catch(error => console.error("Error al obtener datos de Spotify:", error));
 
 
     </script>
