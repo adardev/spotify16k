@@ -5,6 +5,8 @@ import TitleIcon from "../components/titleIcon.astro";
 import List from "../components/list.astro";
 import Section from "../components/section.astro";
 import TopRankings from "../components/topRankings.astro";
+
+import {supabase} from "../db/supabase.js"
 ---
 <Layout>
     <head>
@@ -186,18 +188,49 @@ import TopRankings from "../components/topRankings.astro";
         } else {
             console.warn("No hay token disponible");
         }
-    fetch("https://api.spotify.com/v1/me", {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
-    })
-    .then(res => res.json())
-    .then(userData => {
-        if (userData.display_name) {
-            document.getElementById("nombreUsuario").textContent = `Hola, ${userData.display_name}`;
+
+fetch("https://api.spotify.com/v1/me", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
+.then(res => res.json())
+.then(async userData => {
+  if (userData.display_name && userData.id) {
+    const nombreUsuario = userData.display_name;
+    const spotifyId = userData.id;
+
+    document.getElementById("nombreUsuario").textContent = `Hola, ${nombreUsuario}`;
+
+    // Verificar si el usuario ya existe
+    const { data: existingUser, error: selectError } = await supabase
+      .from("usuario")
+      .select("*")
+      .eq("spotify_id", spotifyId)
+      .single();
+
+    if (!existingUser) {
+      // Insertar si no existe
+      const { data, error } = await supabase.from("usuario").insert([
+        {
+          nombre: nombreUsuario,
+          spotify_id: spotifyId
         }
-    })
-    .catch(error => console.error("Error al obtener el nombre del usuario:", error));
+      ]);
+
+      if (error) {
+        console.error("❌ Error al insertar usuario:", error);
+      } else {
+        console.log("✅ Usuario insertado:", data);
+      }
+    } else {
+      console.log("🟢 Usuario ya existe:", existingUser);
+    }
+  }
+})
+.catch(error => console.error("❌ Error al obtener datos de Spotify:", error));
+
+
     </script>
 </Layout>
 
