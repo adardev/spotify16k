@@ -152,8 +152,8 @@ import { supabase } from '../db/supabase.js';
     </Section>
     </body>
     <script>
-         console.log(localStorage.spotifyToken)
         const token = localStorage.getItem("spotify_token");
+        console.log(token);
         if (token) {
             fetch("https://api.spotify.com/v1/me/player/currently-playing", {
                 headers: {
