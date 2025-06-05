@@ -5,6 +5,7 @@ import TitleIcon from "../components/titleIcon.astro";
 import List from "../components/list.astro";
 import Section from "../components/section.astro";
 import TopRankings from "../components/topRankings.astro";
+import { supabase } from '../db/supabase.js';
 ---
 <Layout>
     <head>
@@ -150,9 +151,7 @@ import TopRankings from "../components/topRankings.astro";
         </TopRankings>
     </Section>
     </body>
-    <script type="module">
-        import { supabase } from '../db/supabase.js';
-        // Aquí puedes usar supabase en el navegador
+    <script>
          console.log(localStorage.spotifyToken)
         const token = localStorage.getItem("spotify_token");
         if (token) {
