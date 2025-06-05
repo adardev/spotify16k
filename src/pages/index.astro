@@ -150,72 +150,63 @@ import TopRankings from "../components/topRankings.astro";
         </TopRankings>
     </Section>
     </body>
-    <script>
-        const token = localStorage.getItem("spotify_token");
-        console.log(token);
-        if (token) {
-            fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(res => res.json()).then(data => {
-                if (data?.item) {
-                    const track = data.item;
-                    const trackName = track.name;
-                    const artistName = track.artists[0].name;
-                    const trackImage = track.album.images[0].url;
+<script>
+  const token = localStorage.getItem("spotify_token");
 
-                    document.getElementById("titulo").textContent = trackName;
-                    document.getElementById("autor").textContent = artistName;
-                    document.getElementById("currentImage").src = trackImage;
-                }
-                })
-            fetch("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(res => res.json()).then(data => {
-                if (data?.items?.length > 0) {
-                    //ciclo para relacionar lo que es el carrusel con los ultimos tracks
-                    let contador;
-                    for(contador=0;contador<6;contador=contador+1){
-                        document.getElementById("carrusel"+(contador+1)).src = data.items[contador].track.album.images[0].url;
-                    }
-                }
-                })
-        } else {
-            console.warn("No hay token disponible");
-        }
-
-fetch("https://api.spotify.com/v1/me", {
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-})
-.then(res => res.json())
-.then(async userData => {
-  if (userData.display_name && userData.id) {
-    const nombreUsuario = userData.display_name;
-    const spotifyId = userData.id;
-
-    document.getElementById("nombreUsuario").textContent = `Hola, ${nombreUsuario}`;
-
-    // Llamar a tu endpoint propio
-    fetch("/api/endpoint", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre: nombreUsuario, spotify_id: spotifyId })
+  if (token) {
+    fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data.inserted ? "Usuario insertado" : "Usuario ya existe");
+      if (data?.item) {
+        const track = data.item;
+        document.getElementById("titulo").textContent = track.name;
+        document.getElementById("autor").textContent = track.artists[0].name;
+        document.getElementById("currentImage").src = track.album.images[0].url;
+      }
+    });
+
+    fetch("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
+      headers: { Authorization: `Bearer ${token}` }
     })
-    .catch(err => console.error("Error al verificar usuario:", err));
+    .then(res => res.json())
+    .then(data => {
+      if (data?.items?.length > 0) {
+        for (let i = 0; i < 6; i++) {
+          document.getElementById("carrusel" + (i + 1)).src =
+            data.items[i].track.album.images[0].url;
+        }
+      }
+    });
+
+    fetch("https://api.spotify.com/v1/me", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(res => res.json())
+    .then(userData => {
+      if (userData.display_name && userData.id) {
+        const nombreUsuario = userData.display_name;
+        const spotifyId = userData.id;
+
+        document.getElementById("nombreUsuario").textContent = `Hola, ${nombreUsuario}`;
+
+        fetch("/api/endpoint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nombre: nombreUsuario, spotify_id: spotifyId })
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data.inserted ? "Usuario insertado" : "Usuario ya existe");
+        })
+        .catch(err => console.error("Error al insertar usuario:", err));
+      }
+    });
+  } else {
+    console.warn("No hay token disponible");
   }
-})
-.catch(error => console.error("Error al obtener datos de Spotify:", error));
-    </script>
-</Layout>
+</script>
 
 <style>
     p {
